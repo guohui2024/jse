@@ -1,0 +1,19 @@
+
+    <div class="title">
+                <!--p-button label="Sign out" (onClick)="logOut()" class="flex justify-content-left"></p-button-->
+            <h1 class="textloc">Student GPA Calculator</h1>
+            <div class="signout">
+                <p-button label="Sign out" (onClick)="logOut()" class="justify-content-right"></p-button>
+            </div>
+            <!--button class="signout" (onClick)="logOut()">Sign out</button-->
+    </div>
+
+    <div class="toolbar">
+            
+            <button (click)="onHome()" class="menuLabel"  aria-labelledby="Home button" tabindex="1" 
+                    routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</button>
+            <button (click)="onCourse()" class="menuLabel"  aria-labelledby="Course button" tabindex="2"
+                    routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">GPA Calculator</button>  
+    </div>
+
+

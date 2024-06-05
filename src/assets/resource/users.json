@@ -1,0 +1,7 @@
+{
+  "users": 
+    [
+      {"username":"admin", "password":"admin","email":"admin@hcpss.edu"},
+      {"username":"brandon", "password":"admin","email":"brandon@hcpss.edu"}
+    ]
+}

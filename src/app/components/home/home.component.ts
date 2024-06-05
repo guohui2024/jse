@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +9,10 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 
-  logOut() {
-    sessionStorage.clear();
-    this.router.navigate(['login']);
+  ngOnInit(): void{ 
+    console.log('Current route snapshot:', this.activatedRoute.snapshot);
   }
 }
+

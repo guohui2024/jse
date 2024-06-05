@@ -1,0 +1,67 @@
+.container{
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 10%;
+    margin-bottom: 4%;   
+    justify-content: center;
+  }
+
+  .box1 {
+    width: 400px;
+    height: 125px;
+    padding: 1rem 1rem;
+    margin: 10px;
+    border-radius: 5px;
+    display:inline-block;
+    vertical-align: top;
+    justify-content: space-around;
+    text-align: left;
+  }
+
+  .parent {
+    margin: 1rem;
+    padding: 2rem 2rem;
+    /*text-align: center;
+    display: flex;
+    justify-content: space-around;*/
+
+    background:url('../../../assets/resource/demo1.gif');
+    background-size: 250px ;
+    background-position: 98% 50%;
+    background-repeat: no-repeat;
+  }
+
+  .context{
+    width: 100%
+  }
+  
+  h3{
+    text-align:center;
+    color: #215272; 
+  }
+  
+  table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-left: 10%;
+  }
+  
+  table, th, td {
+    border: 1px solid #ddd;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+  }
+
+  table th{
+    background-color: #2f6081;
+    color: white;
+  }
+
+  table, th , td {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding: 5px;
+  }

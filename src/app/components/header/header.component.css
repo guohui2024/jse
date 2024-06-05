@@ -1,21 +1,12 @@
-body {
-    font-family: 'Helvetica', Arial, sans-serif;
-  }
-  
+
 .title{
-    background-image:url('../assets/resource/download.png');
+    background-image:url('../../../assets/resource/download.png');
     background-color: skyblue;
     background-size: 130px ;
     background-position: 25% 50%;
     height:150px;
     background-repeat: no-repeat;
     text-align: center;
-}
-
-.textloc{
-    margin-left: 40%;
-    position: absolute;
-    top: 55px;
 }
 
 .toolbar{
@@ -26,6 +17,13 @@ body {
     top:150px;
     border-bottom: 2px solid #e1f184;
     border-top: 2px solid #e1f184;
+}
+
+.signout{
+    position: absolute;
+    left: 80%;
+    width: 20%;
+    border: none;
 }
 
 button{
@@ -45,5 +43,3 @@ button{
     height: 100%;
     font-size: 16px;
 }
-
-
