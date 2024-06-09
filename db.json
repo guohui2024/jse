@@ -31,6 +31,45 @@
       "password": "mary4002"
     }
   ],
+  "savedCourses": [
+    {
+      "id": "WL-605-CC",
+      "username": "test",
+      "name": "French III CC",
+      "type": "GT",
+      "description": "Ayoub, E.",
+      "credit": 1,
+      "score": 90,
+      "grade": "A"
+    },
+    {
+      "id": "CT-475-1",
+      "name": "Computer Science A-AP",
+      "type": "AP",
+      "description": "McKibben, C.",
+      "credit": 1,
+      "grade": "E",
+      "score": 0
+    },
+    {
+      "id": "SO-504-1",
+      "name": "Gov/Politics-AP",
+      "type": "AP",
+      "description": "Parrish, J.",
+      "credit": 1,
+      "grade": "E",
+      "score": 0
+    },
+    {
+      "id": "MA-625-1",
+      "name": "Calculus AB",
+      "type": "AP",
+      "description": "De La Mar, R.",
+      "credit": 1,
+      "grade": "A",
+      "score": "99"
+    }
+  ],
   "courses": [
     {
       "id": "WL-605-CC",
@@ -227,18 +266,11 @@
   ],
   "userGpa": [
     {
-      "id": "1",
-      "username": "brandon",
-      "date": "2024-04-06",
-      "weightedGpa": 4.5,
-      "unWeightedGpa": 4
-    },
-    {
-      "id": "2",
-      "username": "brandon",
-      "date": "2024-04-05",
-      "weightedGpa": 4.2,
-      "unWeightedGpa": 4
+      "id": "878b",
+      "username": "test",
+      "date": "6/8/2024 9:54:07 PM",
+      "weightedGpa": 2.5,
+      "unWeightedGpa": 2
     }
   ]
 }

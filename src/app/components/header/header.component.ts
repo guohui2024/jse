@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
   constructor(private router: Router){ 
-    console.log('test!');
+    //console.log('test!');
   }
 
   ngOnInit(): void{ }

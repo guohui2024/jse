@@ -1,10 +1,10 @@
-export class Course {
+export class SavedCourses {
     id: string = "";
-    name: string = "test";
+    username: string = "test";
+    name: string="";
     credit: number = 0.0;
     type: string = 'R';
     description: string = "";
     grade: string = "A";
     score: number = 0.0;
-    username:string='';
 }

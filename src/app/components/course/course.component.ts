@@ -9,8 +9,9 @@ import { MatSelect, MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
-import { ReplaySubject, Subject, take, takeUntil } from 'rxjs';
+import { ReplaySubject, Subject, switchMap, take, takeUntil } from 'rxjs';
 import { MessageService } from 'primeng/api';
+import { UserGpa } from 'src/app/models/UserGpa';
 
 
 @Component({
@@ -18,14 +19,16 @@ import { MessageService } from 'primeng/api';
   templateUrl: './course.component.html',
   styleUrls: ['./course.component.css']
 })
-export class CourseComponent {
+export class CourseComponent implements OnInit{
  
   course: Course = new Course();
   courses:any[]=[];   //array of available courses
 
+  username: string = '';
+  userId: string = '';
   defaultCourse = {courseId: 0, name: 'Select the course from below:', description:"test", type: "RE", credit: 0, grade:0.0};
 
-  selectedCourses:Course[]=[];   //array of selected courses to show in the table
+  selectedCourses:Course[]=[];   //array of selected or saved courses to show in the table
   selectedCourse:any = null;
   public searchInput: String = '';
 
@@ -40,19 +43,52 @@ export class CourseComponent {
   courseFlag:Boolean = false;      //warning flag for no course
 
   public filteredCourses: any;
- 
+  
   constructor(private httpClient: HttpClient, private courseService: CoursesService, private messageService: MessageService) {  
+  }
+
+  userGpa:UserGpa = new UserGpa();
+   ngOnInit(){
+    this.username = sessionStorage.getItem('username') || '';
+    console.log("username: ", this.username);
+    
     //Read courses collection from json file at Path : assets/resource/courses.json
     this.courseService.getCourses().subscribe(
       (data) => {
         this.courses = data;
         this.filteredCourses = this.courses;
-        console.log(this.filteredCourses);
+        //console.log(this.filteredCourses);
       }, 
       (error) => {
         console.error('Error reading JSON file:', error);
       }
     );
+    if(this.username){
+        this.courseService.getSavedCourses(this.username).subscribe(
+          (data) => {
+            this.selectedCourses = data;
+            console.log("Saved Courses" , this.selectedCourses);
+          }, 
+          (error) => {
+            console.error('Error reading JSON file:', error);
+          }
+        ); 
+
+        this.courseService.getUserGpa(this.username).subscribe(
+            (data) => {
+              if( data.length > 0){
+                this.wgpa = data[0].weightedGpa;
+                this.uwgpa = data[0].unWeightedGpa;
+                this.gpaFlag = true;
+                this.userId = data[0].id;
+                console.log( "Saved GPA", this.wgpa , " : ", this.uwgpa);
+              }
+            }, 
+            (error) => {
+              console.error('Error reading JSON file:', error);
+            }
+        );
+     }
    }
 
   onAddCourse(){
@@ -66,7 +102,7 @@ export class CourseComponent {
     }else{
       if( this.selectedCourse !=null ){
         // Check if the course is already in the array
-        if(this.selectedCourses.some(course => this.selectedCourse === course) ){
+        if(this.selectedCourses.some(course => this.selectedCourse.name === course.name) ){
           this.duplicateFlag = true;
         }else{ 
           this.selectedCourse['score'] = this.score;
@@ -102,6 +138,40 @@ export class CourseComponent {
       this.selectedCourse = null;
       this.score  = 0.0;
     }
+  }
+
+  onSave(){
+    console.log("onSave");
+    const now = new Date();
+    const date = now.toLocaleDateString(); // e.g., "5/29/2024"
+    const time = now.toLocaleTimeString(); // e.g., "10:30:00 AM"
+    const userGpa = {
+      id: this.userId,
+      username:this.username,
+      date: `${date} ${time}`,
+      weightedGpa: this.wgpa,
+      unWeightedGpa: this.uwgpa
+    };
+
+    this.courseService.saveGpa(userGpa as UserGpa).subscribe(
+      response => {
+        console.log(response);
+        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'GPA saved sucessfully' });
+      },
+      error => {
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong when saving GPA' });
+      }
+    );
+
+    this.courseService.saveOrUpdateSelectedCourses(this.selectedCourses, this.username).subscribe(
+      response => {
+        console.log(response);
+        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Courses GPA saved sucessfully' });
+      },
+      error => {
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
+      }
+    );
   }
 
   getGrade(score:number){   //transfer input score to grade
@@ -181,10 +251,6 @@ export class CourseComponent {
     this.gradeFlag = false;
     this.duplicateFlag = false;
   }
-
-  ngOnInit(): void {
-    console.log();
-  } 
 
   deleteRow(x:number){
     var delBtn = confirm(" Do you want to delete?");

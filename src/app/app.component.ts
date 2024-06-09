@@ -20,7 +20,7 @@ export class AppComponent  implements OnInit{
   user?: User | null;
 
   constructor(private router: Router, private userService:UserService){ 
-    console.log('test!');
+    //console.log('test!');
   }
 
   ngOnInit(): void{ }
