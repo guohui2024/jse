@@ -141,7 +141,6 @@ export class CourseComponent implements OnInit{
   }
 
   onSave(){
-    console.log("onSave");
     const now = new Date();
     const date = now.toLocaleDateString(); // e.g., "5/29/2024"
     const time = now.toLocaleTimeString(); // e.g., "10:30:00 AM"
@@ -163,7 +162,7 @@ export class CourseComponent implements OnInit{
       }
     );
 
-    this.courseService.saveOrUpdateSelectedCourses(this.selectedCourses, this.username).subscribe(
+    this.courseService.saveSelectedCourses(this.selectedCourses, this.username).subscribe(
       response => {
         console.log(response);
         this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Courses GPA saved sucessfully' });

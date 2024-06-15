@@ -37,6 +37,7 @@ export class LoginComponent {
       response => {
         if (response.length > 0 && response[0].password === password) {
           sessionStorage.setItem('username', username as string);
+          console.log('set usename in session storage: ', username);
           this.router.navigate(['/home']);
         } else {
           this.errorFlag = true;

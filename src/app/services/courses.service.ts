@@ -49,44 +49,66 @@ export class CoursesService {
     );
   }
 
-  saveGpa(data: UserGpa){
+  saveGpa(userGpa: UserGpa): Observable<UserGpa> {
     console.log("Save GPA");
-    return this.http.put(`${this.baseUrl}/userGpa/${data.id}`, data);
+    return this.getUserGpaByUsername(userGpa.username).pipe(
+      switchMap(existingGpa => {
+        if (existingGpa == null) {
+          return this.updateUserGpa(userGpa);
+        } else {
+          return this.addUserGpa(userGpa);
+        }
+      })
+    );
   }
 
-  getUserGpaByUsername(username: String): Observable<UserGpa> {
+  getUserGpaByUsername(username: String): Observable<UserGpa | null> {
+    console.log("get user gpa: ", username);
     return this.http.get<UserGpa>(`${this.baseUrl}/userGpa?username=${username}`).pipe(
       map(resp => resp)
     );
   }
 
-  saveOrUpdateSelectedCourses(courses:Course[], username:string):Observable<Course[]>{
-    console.log("before save: " , courses);
+  addUserGpa(userGpa: UserGpa): Observable<UserGpa> {
+    console.log("add user gpa: ", userGpa);
+    return this.http.post<UserGpa>(`${this.baseUrl}/userGpa`, userGpa);
+  }
+
+  updateUserGpa(userGpa: UserGpa): Observable<UserGpa> {
+    console.log('Update user gpa: ', userGpa.id);
+    const url = `${this.baseUrl}/userGpa/${userGpa.id}`;
+    return this.http.put<UserGpa>(url, userGpa);
+  }
+
+  saveSelectedCourses(courses:Course[], username:string):Observable<Course[]>{
+    console.log("before save courses: " , courses);    
     const observables = courses.map(course => 
           this.getSavedCourseById(course.id).pipe(
             switchMap(existingCourse => {
               console.log('existingCourse: ', existingCourse);
-              if (existingCourse) {
-                return this.updateCourse(course);
-              } else {
-                return this.addCourse(course);
-              }
+              if (existingCourse.size>0) {
+                return this.deleteSavedCource(course);
+              } 
+              course.username=username;
+              return this.addCourse(course);
             })
           )
-        );
-        return forkJoin(observables) as Observable<Course[]>;
+    );
+    return forkJoin(observables) as Observable<Course[]>;
   }
 
-  getSavedCourseById(id: string): Observable<any> {
-    console.log('check saved courses: ',`${this.baseUrl}/savedCourses/${id}`);
-    return this.http.get<any>(`${this.baseUrl}/savedCourses/${id}`).pipe(
+  deleteSavedCource(course:Course){
+    console.log('delete saved courses: ');
+    return this.http.delete<any>(`${this.baseUrl}/savedCourses?id=${course.id}`).pipe(
       catchError(error => of(null)) // Return null if not found
     );
   }
 
-  updateCourse(course: Course) {
-    console.log("update course: ", course);
-    return this.http.put(`${this.baseUrl}/savedCourses/${course.id}`, course);
+  getSavedCourseById(id: string): Observable<any> {
+    console.log('check saved courses: ',`${this.baseUrl}/savedCourses/${id}`);
+    return this.http.get<any>(`${this.baseUrl}/savedCourses?id=${id}`).pipe(
+      catchError(error => of(null)) // Return null if not found
+    );
   }
 
   addCourse(course: Course) {
