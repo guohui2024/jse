@@ -26,7 +26,6 @@ export class CoursesService {
   }
 
   getCourses(): Observable<Course[]>{
-    console.log("Get Course list")
     return this.http.get<Course[]>(`${this.baseUrl}/courses`).pipe(
       catchError(this.errorHandler),
       map((resp)=>resp)
@@ -34,7 +33,7 @@ export class CoursesService {
   }
 
   getSavedCourses(username:string): Observable<Course[]>{
-    console.log("Get saved Course list : ", username);
+    //console.log("Get saved Course list : ", username);
     return this.http.get<Course[]>(`${this.baseUrl}/savedCourses?username=${username}`).pipe(
       catchError(this.errorHandler),
       map((resp)=>resp)
@@ -42,7 +41,6 @@ export class CoursesService {
   }
 
   getUserGpa(username:string): Observable<UserGpa[]>{
-    console.log("Get gpa:" , username);
     return this.http.get<UserGpa[]>(`${this.baseUrl}/userGpa?username=${username}`).pipe(
       catchError(this.errorHandler),
       map((resp)=>resp)
@@ -50,10 +48,12 @@ export class CoursesService {
   }
 
   saveGpa(userGpa: UserGpa): Observable<UserGpa> {
-    console.log("Save GPA");
+    //const existingGpa = this.getUserGpaByUsername(userGpa.username);
     return this.getUserGpaByUsername(userGpa.username).pipe(
       switchMap(existingGpa => {
-        if (existingGpa == null) {
+        if (existingGpa) {
+          userGpa.id = existingGpa.id;
+          //console.log("existing usergpa.id", existingGpa.id);
           return this.updateUserGpa(userGpa);
         } else {
           return this.addUserGpa(userGpa);
@@ -63,30 +63,34 @@ export class CoursesService {
   }
 
   getUserGpaByUsername(username: String): Observable<UserGpa | null> {
-    console.log("get user gpa: ", username);
-    return this.http.get<UserGpa>(`${this.baseUrl}/userGpa?username=${username}`).pipe(
-      map(resp => resp)
+    return this.http.get<UserGpa[]>(`${this.baseUrl}/userGpa?username=${username}`).pipe(
+      map(userGpas => userGpas.length > 0 ? userGpas[0] : null),
+      catchError(() => of(null))
     );
   }
 
   addUserGpa(userGpa: UserGpa): Observable<UserGpa> {
-    console.log("add user gpa: ", userGpa);
+    //console.log("add user gpa: ", userGpa);
+    if (!userGpa.id) {
+      throw new Error('UserGpa ID is required for update');
+    }
     return this.http.post<UserGpa>(`${this.baseUrl}/userGpa`, userGpa);
   }
 
   updateUserGpa(userGpa: UserGpa): Observable<UserGpa> {
-    console.log('Update user gpa: ', userGpa.id);
+    //console.log('Update user gpa: ', userGpa.id);
     const url = `${this.baseUrl}/userGpa/${userGpa.id}`;
     return this.http.put<UserGpa>(url, userGpa);
   }
 
-  saveSelectedCourses(courses:Course[], username:string):Observable<Course[]>{
+  saveSelectedCourses(courses:SavedCourses[], username:string):Observable<SavedCourses[]>{
     console.log("before save courses: " , courses);    
     const observables = courses.map(course => 
           this.getSavedCourseById(course.id).pipe(
             switchMap(existingCourse => {
-              console.log('existingCourse: ', existingCourse);
-              if (existingCourse.size>0) {
+              console.log('existingCourse: ', existingCourse, "; course: " , course, '; find course: ', existingCourse == null);
+              if (existingCourse) {
+                course.id = existingCourse.id;
                 return this.deleteSavedCource(course);
               } 
               course.username=username;
@@ -99,15 +103,16 @@ export class CoursesService {
 
   deleteSavedCource(course:Course){
     console.log('delete saved courses: ');
-    return this.http.delete<any>(`${this.baseUrl}/savedCourses?id=${course.id}`).pipe(
+    return this.http.delete<any>(`${this.baseUrl}/savedCourses/${course.id}`).pipe(
       catchError(error => of(null)) // Return null if not found
     );
   }
 
-  getSavedCourseById(id: string): Observable<any> {
-    console.log('check saved courses: ',`${this.baseUrl}/savedCourses/${id}`);
-    return this.http.get<any>(`${this.baseUrl}/savedCourses?id=${id}`).pipe(
-      catchError(error => of(null)) // Return null if not found
+  getSavedCourseById(id: string): Observable<SavedCourses|null> {
+    console.log('check saved course: ',`${this.baseUrl}/savedCourses/${id}`);
+    return this.http.get<SavedCourses[]>(`${this.baseUrl}/savedCourses/${id}`).pipe(
+      map(savedCourse => savedCourse.length > 0 ? savedCourse[0] : null),
+      catchError(() => of(null))
     );
   }
 
@@ -115,4 +120,8 @@ export class CoursesService {
     console.log("add course: ", course,  " : " ,  '${this.baseUrl}/savedCourses/');
     return this.http.post(`${this.baseUrl}/savedCourses/`, course);
   }
+}
+
+function uuidv4(): string {
+  throw new Error('Function not implemented.');
 }

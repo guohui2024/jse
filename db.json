@@ -11,24 +11,20 @@
       "username": "hellohello",
       "email": "hello@test",
       "password": "hello2024"
+    },
+    {
+      "id": "3cb7",
+      "username": "testhello",
+      "email": "test@gmail",
+      "password": "test2024"
     }
   ],
   "savedCourses": [
     {
-      "id": "CT-475-1",
-      "name": "Computer Science A-AP",
-      "type": "AP",
-      "description": "McKibben, C.",
-      "credit": 1,
-      "grade": "D",
-      "score": "67",
-      "username": "hellohello"
-    },
-    {
-      "id": "CT-475-1",
-      "name": "Computer Science A-AP",
-      "type": "AP",
-      "description": "McKibben, C.",
+      "id": "WL-605-CC",
+      "name": "French III CC",
+      "type": "GT",
+      "description": "Ayoub, E.",
       "credit": 1,
       "grade": "D",
       "score": "67",
@@ -40,39 +36,42 @@
       "type": "GT",
       "description": "Ayoub, E.",
       "credit": 1,
-      "grade": "D",
-      "score": "67",
-      "username": "hellohello"
+      "grade": "B",
+      "score": "88",
+      "username": "testhello"
+    },
+    {
+      "id": "MA-625-1",
+      "name": "Calculus AB",
+      "type": "AP",
+      "description": "De La Mar, R.",
+      "credit": 1,
+      "grade": "B",
+      "score": "89",
+      "username": "testhello"
     }
   ],
   "userGpa": [
     {
-      "id": "878b",
-      "username": "test",
-      "date": "6/8/2024 9:54:07 PM",
-      "weightedGpa": 2.5,
-      "unWeightedGpa": 2
+      "id": "3ed5",
+      "username": "hellohello",
+      "date": "6/15/2024 9:53:25 PM",
+      "weightedGpa": 1,
+      "unWeightedGpa": 1
     },
     {
-      "id": "",
+      "id": "0c9d",
       "username": "hellohello",
-      "date": "6/15/2024 4:31:59 PM",
+      "date": "6/15/2024 9:53:49 PM",
+      "weightedGpa": 3,
+      "unWeightedGpa": 2.5
+    },
+    {
+      "username": "testhello",
+      "date": "6/16/2024 11:40:45 AM",
       "weightedGpa": 4,
-      "unWeightedGpa": 3
-    },
-    {
-      "id": "",
-      "username": "hellohello",
-      "date": "6/15/2024 4:36:25 PM",
-      "weightedGpa": 1,
-      "unWeightedGpa": 1
-    },
-    {
-      "id": "",
-      "username": "hellohello",
-      "date": "6/15/2024 5:32:47 PM",
-      "weightedGpa": 1,
-      "unWeightedGpa": 1
+      "unWeightedGpa": 3,
+      "id": "f053"
     }
   ],
   "courses": [

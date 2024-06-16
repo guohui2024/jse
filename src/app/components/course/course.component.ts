@@ -144,8 +144,8 @@ export class CourseComponent implements OnInit{
     const now = new Date();
     const date = now.toLocaleDateString(); // e.g., "5/29/2024"
     const time = now.toLocaleTimeString(); // e.g., "10:30:00 AM"
+    console.log("before save GPA: wgpa=",this.wgpa, "; uwgpa=", this.uwgpa);
     const userGpa = {
-      id: this.userId,
       username:this.username,
       date: `${date} ${time}`,
       weightedGpa: this.wgpa,
