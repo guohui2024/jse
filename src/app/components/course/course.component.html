@@ -57,7 +57,7 @@
     </div>
     <div class ="container-button">
         <button type="submit" class="buttons" (click)="onGPA()">Calculate GPA</button>
-        <button type="submit" class="buttons" (click)="onSave()">Save</button>
+        <button type="submit" class="buttons" [disabled]="isSaveButtonDisabled" (click)="onSave()">Save</button>
         <button type="submit" class="buttons" (click)="clear()">Clear</button>
     </div>
 </div>

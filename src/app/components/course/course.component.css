@@ -1,8 +1,6 @@
-
- 
   .container{
-    width: 1100px;
-    margin-top: 120px;
+    width: 1200px;
+    margin-top: 5;
     margin-left: 150px;
     margin-bottom: 10px;
     background:url('../../../assets/resource/learning2.jpg');
@@ -25,7 +23,7 @@
   .container-gpa{
     width: 95%;
     margin-left: 5%;
-    margin-top: 5%;
+    margin-top: 2%;
     margin-right: 10%;    
     padding: 1%;    
     font-size: 20px;

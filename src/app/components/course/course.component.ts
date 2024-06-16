@@ -41,6 +41,7 @@ export class CourseComponent implements OnInit{
   gradeFlag:Boolean = false;       //warning flag for invalid grade
   gpaFlag:Boolean = false;         //hide flag for showing gpa
   courseFlag:Boolean = false;      //warning flag for no course
+  isSaveButtonDisabled = true;
 
   public filteredCourses: any;
   
@@ -137,6 +138,7 @@ export class CourseComponent implements OnInit{
       this.courseFlag = false;
       this.selectedCourse = null;
       this.score  = 0.0;
+      this.isSaveButtonDisabled = false;
     }
   }
 
@@ -154,7 +156,7 @@ export class CourseComponent implements OnInit{
 
     this.courseService.saveGpa(userGpa as UserGpa).subscribe(
       response => {
-        console.log(response);
+        console.log("After saving GPA , ",response);
         this.messageService.add({ severity: 'success', summary: 'Success', detail: 'GPA saved sucessfully' });
       },
       error => {
@@ -164,13 +166,14 @@ export class CourseComponent implements OnInit{
 
     this.courseService.saveSelectedCourses(this.selectedCourses, this.username).subscribe(
       response => {
-        console.log(response);
+        console.log("After saving courses , ",response);
         this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Courses GPA saved sucessfully' });
       },
       error => {
         this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
       }
     );
+    this.isSaveButtonDisabled = true;
   }
 
   getGrade(score:number){   //transfer input score to grade

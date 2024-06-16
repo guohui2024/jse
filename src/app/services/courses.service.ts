@@ -83,45 +83,43 @@ export class CoursesService {
     return this.http.put<UserGpa>(url, userGpa);
   }
 
-  saveSelectedCourses(courses:SavedCourses[], username:string):Observable<SavedCourses[]>{
-    console.log("before save courses: " , courses);    
-    const observables = courses.map(course => 
-          this.getSavedCourseById(course.id).pipe(
-            switchMap(existingCourse => {
-              console.log('existingCourse: ', existingCourse, "; course: " , course, '; find course: ', existingCourse == null);
-              if (existingCourse) {
-                course.id = existingCourse.id;
-                return this.deleteSavedCource(course);
-              } 
-              course.username=username;
-              return this.addCourse(course);
-            })
-          )
+  saveSelectedCourses(courses:SavedCourses[], username:string): Observable<SavedCourses[]>{  
+    this.deleteSavedCources(username).subscribe({
+      next: () => console.log('All records deleted successfully.'),
+      error: err => console.error('Error deleting records:', err)
+    });
+    console.log("ready to save courses: " , courses)
+    const createObservables = courses.map(course =>
+      this.http.post<SavedCourses>(`${this.baseUrl}/savedCourses`, course)
     );
-    return forkJoin(observables) as Observable<Course[]>;
+    return forkJoin(createObservables);
   }
+  
+  deleteSavedCources(username:string){
+    console.log('delete saved courses for user: ', username);
 
-  deleteSavedCource(course:Course){
-    console.log('delete saved courses: ');
-    return this.http.delete<any>(`${this.baseUrl}/savedCourses/${course.id}`).pipe(
-      catchError(error => of(null)) // Return null if not found
+    return this.getSavedCoursesByUsername(username).pipe(
+      switchMap(savedCourses => {
+        if (savedCourses.length > 0) {
+          // Create an array of delete observables
+          const deleteObservables = savedCourses.map(course => 
+            this.http.delete<void>(`${this.baseUrl}/savedCourses/${course.id}`)
+          );
+          // Use forkJoin to run all delete operations in parallel
+          return forkJoin(deleteObservables);
+        } else {
+          // If no courses found, return an empty array of observables
+          return of([]);
+        }
+      }), 
+      catchError(err => {
+        console.error('Error fetching or deleting records:', err);
+        return of([]);
+      })
     );
   }
 
-  getSavedCourseById(id: string): Observable<SavedCourses|null> {
-    console.log('check saved course: ',`${this.baseUrl}/savedCourses/${id}`);
-    return this.http.get<SavedCourses[]>(`${this.baseUrl}/savedCourses/${id}`).pipe(
-      map(savedCourse => savedCourse.length > 0 ? savedCourse[0] : null),
-      catchError(() => of(null))
-    );
+  getSavedCoursesByUsername(username: string): Observable<SavedCourses[]> {
+    return this.http.get<SavedCourses[]>(`${this.baseUrl}/savedCourses?username=${username}`);
   }
-
-  addCourse(course: Course) {
-    console.log("add course: ", course,  " : " ,  '${this.baseUrl}/savedCourses/');
-    return this.http.post(`${this.baseUrl}/savedCourses/`, course);
-  }
-}
-
-function uuidv4(): string {
-  throw new Error('Function not implemented.');
 }
