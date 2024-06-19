@@ -17,9 +17,9 @@
                             </mat-select>
                         </mat-form-field>                        
                     </div>
-                    <label class="warning" *ngIf="duplicateFlag">*this course is already added into your courses.</label>
+                    <label class="warning" for="grade" *ngIf="duplicateFlag">*this course is already added into your courses.</label>
                     <div>
-                        <label>Enter your Grade: </label>
+                        <label for="grade">Enter your Grade: </label>
                         <input type="text" id="grade" class="score" [(ngModel)]="score" />
                     </div>            
                     <label class="warning" *ngIf="gradeFlag">*grade should be a number that is larger than 0 and smaller than and equal to 100 .</label>
@@ -38,7 +38,7 @@
                         <th> credit </th>
                         <th> score </th>
                         <th> grade </th>
-                        <th>  </th>
+                        <th> delete </th>
                     </thead>
                     <tbody>
                         <tr *ngFor = "let item of selectedCourses; let i = index">
@@ -56,9 +56,9 @@
         </div>
     </div>
     <div class ="container-button">
-        <button type="submit" class="buttons" (click)="onGPA()">Calculate GPA</button>
-        <button type="submit" class="buttons" [disabled]="isSaveButtonDisabled" (click)="onSave()">Save</button>
-        <button type="submit" class="buttons" (click)="clear()">Clear</button>
+        <button type="submit" class="buttons" (click)="onGPA()" aria-label="Calculator GPA">Calculate GPA</button>
+        <button type="submit" class="buttons" [disabled]="isSaveButtonDisabled" (click)="onSave()" aria-label="Save">Save</button>
+        <button type="submit" class="buttons" (click)="clear()" aria-label="Clear">Clear</button>
     </div>
 </div>
 

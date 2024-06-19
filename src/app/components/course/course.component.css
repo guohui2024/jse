@@ -1,6 +1,6 @@
   .container{
     width: 1200px;
-    margin-top: 5;
+    margin-top: 15px;
     margin-left: 150px;
     margin-bottom: 10px;
     background:url('../../../assets/resource/learning2.jpg');
@@ -27,7 +27,7 @@
     margin-right: 10%;    
     padding: 1%;    
     font-size: 20px;
-    color: rgb(103, 150, 16);
+    color:#0056b3;
   }
 
   .container-table{

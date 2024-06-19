@@ -49,7 +49,7 @@ export class CourseComponent implements OnInit{
   }
 
   userGpa:UserGpa = new UserGpa();
-   ngOnInit(){
+  ngOnInit(){
     this.username = sessionStorage.getItem('username') || '';
     console.log("username: ", this.username);
     
@@ -83,6 +83,8 @@ export class CourseComponent implements OnInit{
                 this.gpaFlag = true;
                 this.userId = data[0].id;
                 console.log( "Saved GPA", this.wgpa , " : ", this.uwgpa);
+              }else{
+                this.gpaFlag = false;
               }
             }, 
             (error) => {
