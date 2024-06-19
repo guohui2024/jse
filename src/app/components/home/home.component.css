@@ -21,10 +21,6 @@
   .parent {
     margin: 1rem;
     padding: 2rem 2rem;
-    /*text-align: center;
-    display: flex;
-    justify-content: space-around;*/
-
     background:url('../../../assets/resource/demo1.gif');
     background-size: 250px ;
     background-position: 98% 50%;
@@ -35,7 +31,7 @@
     width: 100%
   }
   
-  h3{
+  h3, h2{
     text-align:center;
     color: #215272; 
   }
