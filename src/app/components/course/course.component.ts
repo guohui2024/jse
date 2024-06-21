@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CoursesService } from '../../services/courses.service';
 import { Course } from '../../models/course';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
 import { MatSelect, MatSelectModule } from '@angular/material/select';
@@ -77,7 +77,7 @@ export class CourseComponent implements OnInit{
 
         this.courseService.getUserGpa(this.username).subscribe(
             (data) => {
-              if( data.length > 0){
+              if( data.length>0 && data[0].weightedGpa){
                 this.wgpa = data[0].weightedGpa;
                 this.uwgpa = data[0].unWeightedGpa;
                 this.gpaFlag = true;

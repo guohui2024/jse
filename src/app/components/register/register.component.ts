@@ -26,10 +26,7 @@ export class RegisterComponent {
   })
 
   constructor(
-    private fb: FormBuilder,
-    private authService: AuthService,
-    private messageService: MessageService,
-    private router: Router
+    private fb: FormBuilder,  private authService: AuthService, private messageService: MessageService,  private router: Router
   ) { }
 
   get username() {

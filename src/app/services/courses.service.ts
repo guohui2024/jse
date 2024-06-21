@@ -53,9 +53,10 @@ export class CoursesService {
       switchMap(existingGpa => {
         if (existingGpa) {
           userGpa.id = existingGpa.id;
-          //console.log("existing usergpa.id", existingGpa.id);
+          console.log("existing usergpa.id", existingGpa.id);
           return this.updateUserGpa(userGpa);
         } else {
+          console.log("No existing usergpa.id");
           return this.addUserGpa(userGpa);
         }
       })
@@ -70,10 +71,6 @@ export class CoursesService {
   }
 
   addUserGpa(userGpa: UserGpa): Observable<UserGpa> {
-    //console.log("add user gpa: ", userGpa);
-    if (!userGpa.id) {
-      throw new Error('UserGpa ID is required for update');
-    }
     return this.http.post<UserGpa>(`${this.baseUrl}/userGpa`, userGpa);
   }
 

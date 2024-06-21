@@ -1,15 +1,16 @@
 
 <div class="container">
+    
     <div class="container-gpa" >
         <label class="warning" class="warning-top" *ngIf="courseFlag">*Please select at least one course to calculate GPA</label>
-        <label *ngIf="gpaFlag" class="gpa">Your weighted GPA is {{wgpa| number:'1.2-2'}}, unweighted GPA is {{uwgpa| number:'1.2-2'}}</label>
+        <span *ngIf="gpaFlag" class="gpa">Your weighted GPA is {{wgpa| number:'1.2-2'}}, unweighted GPA is {{uwgpa| number:'1.2-2'}}</span>
     </div>
     <div class="container-course">
             <div>
                 <div class="form-group">
                     <div>
-                        <label>Select Your Course: </label>
-                        <mat-form-field class="mat-select">
+                        <span for="courselist">Select Your Course: </span>
+                        <mat-form-field class="mat-select" > 
                             <mat-select [(ngModel)]="selectedCourse">
                                 <mat-option><b>{{defaultCourse.name}}</b></mat-option>
                                 <input class="search-course" (keyup)="onKey($event.target)" placeholder="Search course here"> 
@@ -27,6 +28,7 @@
                 </div>
             </div>
     </div>
+
     <div class ="container-table">
         <div class = "card">
             <div class = "card-body">
