@@ -14,7 +14,7 @@
                             <mat-select [(ngModel)]="selectedCourse">
                                 <mat-option><b>{{defaultCourse.name}}</b></mat-option>
                                 <input class="search-course" (keyup)="onKey($event.target)" placeholder="Search course here"> 
-                                <mat-option *ngFor="let item of filteredCourses" [value]="item">{{item.courseId}}.{{item.name}}</mat-option>
+                                <mat-option *ngFor="let item of filteredCourses" [value]="item">{{item.id}}.{{item.name}}</mat-option>
                             </mat-select>
                         </mat-form-field>                        
                     </div>

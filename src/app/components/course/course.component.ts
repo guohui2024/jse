@@ -97,7 +97,10 @@ export class CourseComponent implements OnInit{
   onAddCourse(){
     //console.log(this.selectedCourse);
     // Convert the number to a string and use a regular expression to check if it only contains digits
-    const numericRegex = /^\d+$/;
+    const numericRegex = /^\d+\.\d{0,2}$/;
+    this.gpaFlag = false;
+    this.courseFlag = false;
+    this.duplicateFlag = false;
     if( !numericRegex.test(this.score.toString()) || this.score>100 || this.score<0 ) {
       this.gradeFlag = true;
     }else if( this.selectedCourse == null){
@@ -126,6 +129,7 @@ export class CourseComponent implements OnInit{
     if(this.selectedCourses.length ==0 ){
       this.courseFlag = true;
     }else{
+      this.courseFlag = false;
       this.selectedCourses.forEach((course) =>{
         sumOfScore = sumOfScore + course.credit * this.gpaWeight(course.grade, course.type);  // sum for weighted GPA
         uwSumOfScore = uwSumOfScore +  course.credit * this.gpaUnweight(course.grade);    // sum for unweighted GPA

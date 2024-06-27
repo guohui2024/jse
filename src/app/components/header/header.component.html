@@ -1,14 +1,14 @@
     <nav> <!-- Navigation links --> </nav>
     
     <div class="title">
-            <span class="textloc">Student GPA Calculator</span>
+            <span style="position:relative; top:50px">Student GPA Calculator</span>
             <div class="signout">
                 <p-button label="Sign out" (onClick)="logOut()"></p-button>
             </div>
     </div>
 
     <div class="toolbar">            
-        <button  routerlink="/" routerlinkactive="active" class="menuLabel" ng-reflect-router-link="/" ng-reflect-router-link-active="active">Home</button>
+        <button  routerlink="/" (click)="onHome()" routerlinkactive="active" class="menuLabel" ng-reflect-router-link="/" ng-reflect-router-link-active="active">Home</button>
         <button (click)="onCourse()" class="menuLabel" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">GPA Calculator</button>  
     </div>
 
