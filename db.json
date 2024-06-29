@@ -33,24 +33,33 @@
       "description": "Language Credit",
       "credit": 1,
       "grade": "A",
-      "score": "100"
+      "score": "90.0"
     },
     {
-      "id": "MA-543-1",
-      "name": "Precalculus G/T",
+      "id": "MY-800-1",
+      "name": "Band-Wind Wind Ensemble/Marching G/T",
       "type": "GT",
-      "description": "Math Credit",
+      "description": "Fine Arts Credit",
       "credit": 1,
       "grade": "A",
-      "score": "100"
+      "score": "99.0"
+    },
+    {
+      "id": "WL-802-1",
+      "name": "French V AP",
+      "type": "AP",
+      "description": "Language Credit",
+      "credit": 1,
+      "grade": "E",
+      "score": "39.0"
     }
   ],
   "userGpa": [
     {
       "username": "testhello",
-      "date": "6/16/2024 2:47:45 PM",
-      "weightedGpa": 1.5,
-      "unWeightedGpa": 1,
+      "date": "6/29/2024 4:34:42 PM",
+      "weightedGpa": 3.1666666666666665,
+      "unWeightedGpa": 2.6666666666666665,
       "id": "f053"
     },
     {

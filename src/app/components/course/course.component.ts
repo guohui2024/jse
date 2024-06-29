@@ -126,6 +126,7 @@ export class CourseComponent implements OnInit{
   onGPA(){   //calculated both weight and unweight gpa after clicking the button
     let sumOfScore = 0.0, uwSumOfScore = 0.0;
     let sumOfCredit = 0.0
+    this.gpaFlag=false;
     if(this.selectedCourses.length ==0 ){
       this.courseFlag = true;
     }else{
