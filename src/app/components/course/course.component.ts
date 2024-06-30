@@ -97,7 +97,7 @@ export class CourseComponent implements OnInit{
   onAddCourse(){
     //console.log(this.selectedCourse);
     // Convert the number to a string and use a regular expression to check if it only contains digits
-    const numericRegex = /^\d+\.\d{0,2}$/;
+    const numericRegex = /^(0|[1-9]\d*)(\.\d+)?$/;
     this.gpaFlag = false;
     this.courseFlag = false;
     this.duplicateFlag = false;

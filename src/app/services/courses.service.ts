@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, forkJoin, of, throwError } from 'rxjs';
 import { Course } from '../models/course';
 
-import { catchError, map, switchMap } from 'rxjs/operators';
+import { catchError, concatMap, map, switchMap } from 'rxjs/operators';
 import { UserGpa } from '../models/UserGpa';
 import { SavedCourses } from '../models/savedCourses';
 
@@ -79,9 +79,29 @@ export class CoursesService {
     const url = `${this.baseUrl}/userGpa/${userGpa.id}`;
     return this.http.put<UserGpa>(url, userGpa);
   }
-
-  saveSelectedCourses(courses:SavedCourses[], username:string): Observable<SavedCourses[]>{  
-    this.deleteSavedCources(username).subscribe({
+  saveSelectedCourses(courses:SavedCourses[], username:string): Observable<SavedCourses[]>{ 
+    return this.deleteSavedCourses(username).pipe(
+      concatMap(() => {
+        console.log('All records deleted successfully.');
+        console.log('Ready to save courses:', courses);
+        
+        const createObservables = courses.map(course =>
+          this.http.post<SavedCourses>(`${this.baseUrl}/savedCourses`, course)
+        );
+        
+        console.log('Saving all courses...');
+        return forkJoin(createObservables);
+      }),
+      catchError(err => {
+        console.error('Error deleting records:', err);
+        // Handle error appropriately or rethrow
+        return of([]); // Return an empty array or handle error as needed
+      })
+    );
+  }
+    
+  saveSelectedCourses_deprecated(courses:SavedCourses[], username:string): Observable<SavedCourses[]>{  
+    this.deleteSavedCourses(username).subscribe({
       next: () => console.log('All records deleted successfully.'),
       error: err => console.error('Error deleting records:', err)
     });
@@ -89,10 +109,11 @@ export class CoursesService {
     const createObservables = courses.map(course =>
       this.http.post<SavedCourses>(`${this.baseUrl}/savedCourses`, course)
     );
+    console.log("All courses are saved ")
     return forkJoin(createObservables);
   }
   
-  deleteSavedCources(username:string){
+  deleteSavedCourses(username:string){
     console.log('delete saved courses for user: ', username);
 
     return this.getSavedCoursesByUsername(username).pipe(

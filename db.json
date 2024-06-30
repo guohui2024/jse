@@ -27,46 +27,37 @@
   ],
   "savedCourses": [
     {
-      "id": "WL-504-1",
-      "name": "French II Honors",
+      "id": "WL-702-1",
+      "name": "French IV Honors",
       "type": "HO",
       "description": "Language Credit",
       "credit": 1,
       "grade": "A",
-      "score": "90.0"
+      "score": "99"
     },
     {
-      "id": "MY-800-1",
-      "name": "Band-Wind Wind Ensemble/Marching G/T",
-      "type": "GT",
-      "description": "Fine Arts Credit",
-      "credit": 1,
-      "grade": "A",
-      "score": "99.0"
-    },
-    {
-      "id": "WL-802-1",
-      "name": "French V AP",
+      "id": "MA-625-1",
+      "name": "Calculus AB",
       "type": "AP",
-      "description": "Language Credit",
+      "description": "Math Credit",
       "credit": 1,
-      "grade": "E",
-      "score": "39.0"
+      "grade": "B",
+      "score": "88"
     }
   ],
   "userGpa": [
     {
       "username": "testhello",
-      "date": "6/29/2024 4:34:42 PM",
-      "weightedGpa": 3.1666666666666665,
-      "unWeightedGpa": 2.6666666666666665,
+      "date": "6/29/2024 9:06:57 PM",
+      "weightedGpa": 4.25,
+      "unWeightedGpa": 3.5,
       "id": "f053"
     },
     {
       "username": "Brandon",
-      "date": "6/27/2024 3:15:33 PM",
-      "weightedGpa": 4.75,
-      "unWeightedGpa": 4,
+      "date": "6/29/2024 6:16:09 PM",
+      "weightedGpa": 1.5,
+      "unWeightedGpa": 1.3333333333333333,
       "id": "db1e"
     }
   ],
