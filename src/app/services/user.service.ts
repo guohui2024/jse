@@ -84,9 +84,4 @@ export class UserService {
             return x;
         }));
   }
-
-/*  getToken(){
-    const token = localStorage.getItem('token');
-    return token !== 'undefined' && token?token:undefined;
-  }*/
 }

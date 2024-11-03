@@ -2,29 +2,13 @@
 .title{
     background-image:url('../../../assets/resource/download.png');
     background-color: skyblue;
-    background-size: 130px ;
-    background-position: 25% 50%;
-    height:150px;
+    background-size: 100px ;
+    background-position: 20% 50%;
+    height:100px;
     background-repeat: no-repeat;
     text-align: center;
-    font-size: 40px
-}
-
-.toolbar{
-    background-color: white;
-    width:100%;
-    height: 30px;
-    position: absolute;
-    top:150px;
-    border-bottom: 2px solid #e1f184;
-    border-top: 2px solid #e1f184;
-}
-
-.signout{
-    position: absolute;
-    left: 80%;
-    width: 20%;
-    border: none;
+    font-size: 40px;
+    color: white;
 }
 
 :host ::ng-deep .p-button {
@@ -41,7 +25,7 @@
 }
 
 button{
-    width: 50%;
+    width: 10%;
     background-color: #215272;
     height:50px;
     border-color: white;
@@ -49,11 +33,5 @@ button{
 }
 
 .toolbar>button{
-    float:center;
-}
-
-.menuLabel{
-    color: #ffffff;
-    height: 100%;
-    font-size: 16px;
+    float:right;
 }

@@ -17,7 +17,6 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
-import { CourseComponent } from './components/course/course.component';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -25,20 +24,32 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
-
+import { JobListComponent } from './components/job-list/job-list.component';
+import { JobApplyComponent } from './components/job-apply/job-apply.component';
+import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { JobManagementComponent } from './components/job-management/job-management.component';
+import { JobPostingComponent } from './components/job-posting/job-posting.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
+    JobListComponent,
     HomeComponent,
-    CourseComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    JobListComponent,
+    JobApplyComponent,
+    ConfirmationModalComponent,
+    JobManagementComponent,
+    JobPostingComponent
+    //NgModule // Import NgbModule instead of NgbModalModule
   ],
   imports: [
     BrowserModule,
+    NgbModalModule,
     FormsModule,
     AppRoutingModule,
     CardModule,

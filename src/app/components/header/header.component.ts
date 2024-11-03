@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -7,25 +8,34 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  constructor(private router: Router){ 
-    //console.log('test!');
+
+  isLoggedIn: boolean = false;
+
+  constructor(private router: Router, private changeDetector: ChangeDetectorRef){ 
+    this.checkLoginStatus();
   }
 
-  ngOnInit(): void{ }
-  
-  onHome(){    
-    console.log('home page');
-    this.router.navigate(['home']);
+  ngOnInit(): void{ 
+    this.checkLoginStatus();
   }
 
-  onCourse(){
-    console.log('course page')
-    this.router.navigate(['course']);
+  checkLoginStatus(): void {
+    this.isLoggedIn = localStorage.getItem('user') !== null;
+  }
+
+  login(): void {
+    localStorage.setItem('user', 'loggedInUser');
+    this.isLoggedIn = true;
+    this.changeDetector.detectChanges(); // Update view immediately
   }
 
   logOut() {
-    sessionStorage.clear();
-    this.router.navigate(['login']);
+    localStorage.removeItem('user');
+    this.isLoggedIn = false;
+    this.router.navigate(['/']);
   }
-
+  
+  navigateToLogin() {
+    this.router.navigate(['/login']);
+  }
 }

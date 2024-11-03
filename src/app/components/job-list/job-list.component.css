@@ -1,0 +1,171 @@
+.main-content-section {
+  width: 100%; /* Adjust width if needed */
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9; /* Light grey as a fallback */
+  
+  /* Optional styling */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.job-card .card {
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 1rem; /* Reduce space between cards */
+}
+
+.card-body {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem; /* Reduce padding inside the card */
+}
+
+.card-title {
+  font-size: 1.25rem;
+  color: #333;
+  margin-bottom: 0.25rem; /* Reduce space below the title */
+}
+
+.card-text {
+  margin: 0; /* Ensure no additional margin */
+}
+
+/* Search Section */
+.search-section {
+  width: 100vw;
+  height: 30vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-image:  url('/assets/resource/rh2.jpg'),url('/assets/resource/rh1.jpg'), 
+                     url('/assets/resource/rh3.jpg'),url('/assets/resource/rh4.jpg');
+  background-repeat: no-repeat;
+   /* Adjust background size for each image to take up 25% of the container width */
+   background-size: 25% 100%, 30% 100%, 25% 100%, 30% 100%;
+   /* Position each image horizontally across the row */
+   background-position: 0% 0%, 30% 0%, 65% 0%, 100% 0%;
+
+  margin-top: 20px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+/* Overlay - Matches width with main-content-section */
+.overlay {
+  width: 100%; /* Matches main content width */
+  max-width: 1200px; /* Limits max width */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* Label and Search Input Styling */
+.search-label {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.search-bar-container {
+  width: 100%;
+  display: flex;
+}
+
+.search-input {
+  height: 3.5rem;
+  font-size: 1.2rem;
+  padding: 0.75rem;
+  width: 100%;
+}
+
+/* Main Content Section Below Search Bar */
+.main-content-section {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+  width: 100%; /* Full screen width */
+}
+
+.content-container {
+  display: flex;
+  width: 80%; /* Matches overlay width */
+  max-width: 1200px; /* Consistent max width */
+}
+
+/* Job List Background */
+.job-list-container {
+  background-color: #f5f5f5; /* Very light grey */
+  padding: 0.1rrm;
+  border-radius: 8px;
+}
+
+/* Individual Job Item */
+.job-item {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.job-list-section {
+  background-color: #f5f5f5;
+  padding: 1rem;
+  border-radius: 8px;
+}
+.job-card {
+  background-color: white; /* Card background color */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem; /* Add padding inside the card */
+}
+
+.job-title {
+  font-weight: bold;
+  font-size:large;
+  color: blue; /* Blue color for the job title */
+}
+
+.job-description {
+  font-size: 14px; /* Normal font size for the description */
+  margin-bottom: 1rem; /* Spacing below the description */
+}
+
+.job-info-meta {
+  display: flex; /* Flex layout for job info and meta */
+  margin-bottom: 1rem; /* Space between the info/meta and the apply button */
+}
+
+.job-info {
+  flex: 0 0 60%; /* 60% width for job info */
+}
+
+.job-meta {
+  flex: 0 0 40%; /* 40% width for job meta */
+  text-align: right; /* Align text to the right */
+}
+
+.btn-primary {
+  padding: 4px 10px; /* Increase padding for height and width */
+  font-size: 1.25rem; /* Increase font size for better visibility */
+}
+
+.apply-button {
+  width: 200px; /* Set width to your desired size (200px or adjust as needed) */
+  height: 30px; /* Set height to 1.5 times the default height */
+  font-size: 16px; /* Adjust font size if needed */
+}
+
+.filter-section {
+  padding: 30px; /* Adjust this value as needed */
+  background-color: #f9f9f9; /* Optional: to make it visually distinct */
+  border-radius: 8px; /* Optional: for rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: add a subtle shadow */
+}

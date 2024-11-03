@@ -1,338 +1,99 @@
 {
+  "jobs": [
+    {
+      "id": "1",
+      "title": "Software Engineer",
+      "description": "Develop and maintain software applications.",
+      "employer": "Tech Company",
+      "employerIcon": "https://example.com/logo.png",
+      "salary": "$30-40",
+      "level": "Mid-Level",
+      "location": "New York, NY",
+      "jobType": "Full-Time",
+      "status": "approved"
+    },
+    {
+      "id": "2",
+      "title": "Graphic Designer",
+      "description": "Create visual content for various media.",
+      "employer": "Design Studio",
+      "employerIcon": "https://example.com/logo2.png",
+      "salary": "$30-40",
+      "jobLevel": "Junior",
+      "location": "Los Angeles, CA",
+      "jobType": "Part-Time",
+      "status": "approved"
+    },
+    {
+      "status": "approved",
+      "id": "3"
+    }
+  ],
   "users": [
     {
       "id": "1",
       "username": "admin",
       "password": "admin",
-      "email": "admin@hcpss.edu"
+      "email": "admin@hcpss.edu",
+      "role": "admin"
     },
     {
       "id": "ea62",
-      "username": "hellohello",
-      "email": "hello@test",
-      "password": "hello2024"
+      "username": "hello",
+      "email": "hello@hello",
+      "password": "hello",
+      "role": "user"
     },
     {
       "id": "3cb7",
       "username": "testhello",
       "email": "test@gmail",
-      "password": "test2024"
+      "password": "test2024",
+      "role": "employer"
     },
     {
       "id": "0307",
       "username": "Brandon",
       "email": "brandonwyu@gmail.com",
-      "password": "Brandon@2008"
+      "password": "Brandon@2008",
+      "role": "admin"
     }
   ],
-  "savedCourses": [
+  "applications": [
     {
-      "id": "WL-702-1",
-      "name": "French IV Honors",
-      "type": "HO",
-      "description": "Language Credit",
-      "credit": 1,
-      "grade": "A",
-      "score": "99"
+      "id": "b3f2",
+      "name": "test",
+      "email": "Brandonwyu@gmail.com",
+      "phone": "6266965271",
+      "school": "rhhs",
+      "grade": "9",
+      "jobId": "1"
     },
     {
-      "id": "MA-625-1",
-      "name": "Calculus AB",
-      "type": "AP",
-      "description": "Math Credit",
-      "credit": 1,
-      "grade": "B",
-      "score": "88"
+      "id": "41f5",
+      "name": "",
+      "email": "",
+      "phone": "",
+      "school": "",
+      "grade": "",
+      "jobId": "1"
     }
   ],
-  "userGpa": [
+  "employers":[
     {
-      "username": "testhello",
-      "date": "6/29/2024 9:06:57 PM",
-      "weightedGpa": 4.25,
-      "unWeightedGpa": 3.5,
-      "id": "f053"
+      "id": "1",
+      "name": "Tech Company",
+      "logo":""
     },
     {
-      "username": "Brandon",
-      "date": "6/29/2024 6:16:09 PM",
-      "weightedGpa": 1.5,
-      "unWeightedGpa": 1.3333333333333333,
-      "id": "db1e"
-    }
-  ],
-  "courses": [
-    {
-      "id": "WL-404-1",
-      "name": "French I",
-      "type": "RE",
-      "description": "Language Credit",
-      "credit": 1,
-      "grade": 0
+      "id": "2",
+      "name": "Design Studio",
+      "logo":""
     },
     {
-      "id": "WL-504-1",
-      "name": "French II Honors",
-      "type": "HO",
-      "description": "Language Credit",
-      "credit": 1,
-      "grade": 0
-    },
-    {
-      "id": "WL-605-1",
-      "name": "French III Honors",
-      "type": "HO",
-      "description": "Language Credit",
-      "credit": 1,
-      "grade": 0
-    },
-    {
-      "id": "WL-702-1",
-      "name": "French IV Honors",
-      "type": "HO",
-      "description": "Language Credit",
-      "credit": 1,
-      "grade": 0
-    },
-    {
-      "id": "WL-802-1",
-      "name": "French V AP",
-      "type": "AP",
-      "description": "Language Credit",
-      "credit": 1,
-      "grade": 0
-    },
-    {
-      "id": "WL-908-1",
-      "name": "French VI G/T",
-      "type": "GT",
-      "description": "Language Credit",
-      "credit": 1,
-      "grade": 0
-    },
-    {
-      "id": "MY-800-1",
-      "name": "Band-Wind Wind Ensemble/Marching G/T",
-      "type": "GT",
-      "description": "Fine Arts Credit",
-      "credit": 1,
-      "grade": 0
-    },
-    {
-      "id": "MU-400-1",
-      "name": "Band-Concert",
-      "type": "RE",
-      "description": "Fine Arts Credit",
-      "credit": 1,
-      "grade": 0
-    },
-    {
-      "id": "MU-500-1",
-      "name": "Band-Symphonic/Marching",
-      "type": "HO",
-      "description": "Fine Arts Credit",
-      "credit": 1,
-      "grade": 0
-    },
-    {
-      "id": "CT-405-1",
-      "name": "Computer Science Principles AP",
-      "type": "AP",
-      "description": "Technology Credit",
-      "credit": 1,
-      "grade": 0
-    },
-    {
-      "id": "CT-475-1",
-      "name": "Computer Science A-AP",
-      "type": "AP",
-      "description": "Technology Credit",
-      "credit": 1,
-      "grade": 0
-    },
-    {
-      "id": "MA-463-1",
-      "name": "Algebra II G/T",
-      "type": "GT",
-      "description": "Math Credit",
-      "credit": 1,
-      "grade": 0
-    },
-    {
-      "id": "MA-543-1",
-      "name": "Precalculus G/T",
-      "type": "GT",
-      "description": "Math Credit",
-      "credit": 1,
-      "grade": 0
-    },
-    {
-      "id": "MA-625-1",
-      "name": "Calculus AB",
-      "type": "AP",
-      "description": "Math Credit",
-      "credit": 1,
-      "grade": 0
-    },
-    {
-      "id": "MA-705-1",
-      "name": "Calculus C/Multivariate Calculus AP",
-      "type": "AP",
-      "description": "Math Credit",
-      "credit": 1,
-      "grade": 0
-    },
-    {
-      "id": "MA-565-1",
-      "name": "Statistics AP",
-      "type": "AP",
-      "description": "Math Credit",
-      "credit": 1,
-      "grade": 0
-    },
-    {
-      "id": "MA-710-1",
-      "name": "Linear Algebra G/T",
-      "type": "GT",
-      "description": "Math Credit",
-      "credit": 1,
-      "grade": 0
-    },
-    {
-      "id": "MA-723-1",
-      "name": "Differential Equations G/T",
-      "type": "GT",
-      "description": "Math Credit",
-      "credit": 1,
-      "grade": 0
-    },
-    {
-      "id": "SO-403-1",
-      "name": "United States History G/T",
-      "type": "GT",
-      "description": "Social Studies Credit",
-      "credit": 1,
-      "grade": 0
-    },
-    {
-      "id": "SO-504-1",
-      "name": "Goverment and Politics AP",
-      "type": "AP",
-      "description": "Social Studies Credit",
-      "credit": 1,
-      "grade": 0
-    },
-    {
-      "id": "SO-621-1",
-      "name": "World History: Modern AP",
-      "type": "AP",
-      "description": "Social Studies Credit",
-      "credit": 1,
-      "grade": 0
-    },
-    {
-      "id": "SC-515-1",
-      "name": "Biology G/T",
-      "type": "GT",
-      "description": "Science Credit",
-      "credit": 1,
-      "grade": 0
-    },
-    {
-      "id": "SC-901-1",
-      "name": "Biology AP",
-      "type": "AP",
-      "description": "Science Credit",
-      "credit": 1,
-      "grade": 0
-    },
-    {
-      "id": "SC-615-1",
-      "name": "Chemistry G/T",
-      "type": "GT",
-      "description": "Science Credit",
-      "credit": 1,
-      "grade": 0
-    },
-    {
-      "id": "SC-903-1",
-      "name": "Chemistry AP",
-      "type": "AP",
-      "description": "Science Credit",
-      "credit": 1,
-      "grade": 0
-    },
-    {
-      "id": "SC-907-1",
-      "name": "Physics I AP",
-      "type": "AP",
-      "description": "Science Credit",
-      "credit": 1,
-      "grade": 0
-    },
-    {
-      "id": "SC-911-1",
-      "name": "Physics C: Mechanics AP",
-      "type": "AP",
-      "description": "Science Credit",
-      "credit": 1,
-      "grade": 0
-    },
-    {
-      "id": "LA-403-1",
-      "name": "English 9 G/T",
-      "type": "GT",
-      "description": "Language Arts Credit",
-      "credit": 1,
-      "grade": 0
-    },
-    {
-      "id": "LA-503-1",
-      "name": "English 10 G/T",
-      "type": "GT",
-      "description": "Language Arts Credit",
-      "credit": 1,
-      "grade": 0
-    },
-    {
-      "id": "LA-603-1",
-      "name": "English 11 AP",
-      "type": "AP",
-      "description": "Language Arts Credit",
-      "credit": 1,
-      "grade": 0
-    },
-    {
-      "id": "LA-703-1",
-      "name": "English 12 AP",
-      "type": "AP",
-      "description": "Language Arts Credit",
-      "credit": 1,
-      "grade": 0
-    },
-    {
-      "id": "PE-900-8",
-      "name": "Lifetime Fit 9",
-      "type": "RE",
-      "description": "Fine Arts Credit",
-      "credit": 0.5,
-      "grade": 0
-    },
-    {
-      "id": "HE-900-8",
-      "name": "Health I",
-      "type": "RE",
-      "description": "Health Credit",
-      "credit": 0.5,
-      "grade": 0
-    },
-    {
-      "id": "HE-920-8",
-      "name": "Health II",
-      "type": "RE",
-      "description": "Health Credit",
-      "credit": 0.5,
-      "grade": 0.5
+      "id": "3",
+      "name": "Kumon",
+      "logo":""
     }
   ]
 }

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { AuthService } from 'src/app/services/auth.service';
+import { JobService } from 'src/app/services/job.service';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,8 @@ export class LoginComponent {
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private msgService: MessageService
+    private msgService: MessageService,
+    private jobService: JobService
   ) { }
 
   get username() {
@@ -36,9 +38,28 @@ export class LoginComponent {
     this.authService.getUserByUsername(username as string).subscribe(
       response => {
         if (response.length > 0 && response[0].password === password) {
-          sessionStorage.setItem('username', username as string);
-          console.log('set usename in session storage: ', username);
-          this.router.navigate(['/home']);
+          // Save user to local storage
+          localStorage.setItem('user', JSON.stringify(response));
+
+          // Retrieve id from JobService
+          const id = this.jobService.getid();
+          console.log("get id from jobService: " + id);
+
+          if( id != null ) {
+            console.log('to jobapply page: ');
+            this.router.navigate(['/jobapply']);
+          }else{
+            console.log('to joblist page');
+            this.router.navigate(['/joblist']);
+          }
+          
+          // In your login method, after a successful login:
+          if (response[0].role === 'employer') {
+            this.router.navigate(['/job-posting']);
+          } else {
+            this.router.navigate(['/home']); // or any other page for other roles
+          }
+
         } else {
           this.errorFlag = true;
         }

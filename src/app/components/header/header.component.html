@@ -1,15 +1,11 @@
     <nav> <!-- Navigation links --> </nav>
     
     <div class="title">
-            <span style="position:relative; top:50px">Student GPA Calculator</span>
-            <div class="signout">
-                <p-button label="Sign out" (onClick)="logOut()"></p-button>
-            </div>
+            <span style="position:relative; top:10px; padding: 10%">River Hill High School</span>
+
+            <button *ngIf="!isLoggedIn" class="btn btn-primary login-button" (click)="navigateToLogin()" > Login</button>
+            <button *ngIf="isLoggedIn"  class="btn btn-secondary logout-button" (click)="logOut()" >
+        Logout
+    </button>
+            
     </div>
-
-    <div class="toolbar">            
-        <button  routerlink="/" (click)="onHome()" routerlinkactive="active" class="menuLabel" ng-reflect-router-link="/" ng-reflect-router-link-active="active">Home</button>
-        <button (click)="onCourse()" class="menuLabel" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">GPA Calculator</button>  
-    </div>
-
-

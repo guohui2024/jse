@@ -1,0 +1,56 @@
+<div class="job-posting-container" style="width: 80%;">
+  <h2>Post a Job</h2>
+  <form [formGroup]="jobPostingForm" (ngSubmit)="saveJobPosting()">
+    <div>
+      <label for="title">Job Title:</label>
+      <input id="title" formControlName="title" required />
+    </div>
+    
+    <div>
+      <label for="description">Description:</label>
+      <textarea id="description" formControlName="description" required></textarea>
+    </div>
+
+    <div>
+      <label for="salary">Salary:</label>
+      <input id="salary" type="text" formControlName="salary" required />
+    </div>
+
+    <div>
+      <label for="level">Level:</label>
+      <select id="type" formControlName="level" required>
+        <option *ngFor="let type of jobLevels" [value]="type">{{ type }}</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="type">Job Type:</label>
+      <select id="type" formControlName="type" required>
+        <option *ngFor="let type of jobTypes" [value]="type">{{ type }}</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="employer">Employer:</label>
+      <select id="employer" formControlName="employer" required>
+        <option *ngFor="let employer of employers" [value]="employer.name">{{ employer.name }}</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="location">Location:</label>
+      <input id="location" formControlName="location" required />
+    </div>
+
+    <div>
+      <label for="status">Status:</label>
+      <select id="status" formControlName="status">
+        <option value="New">New</option>
+        <option value="Approved">Approved</option>
+        <option value="Closed">Closed</option>
+      </select>
+    </div>
+
+    <button type="button" class="btn btn-primary" (click)="saveJobPosting()">Save</button>
+  </form>
+</div>
