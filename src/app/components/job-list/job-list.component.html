@@ -10,11 +10,15 @@
     </div>
   </div>
 
-
 <div class="container mt-4">
+  <!-- Show link only if the user is an admin -->
+  <div *ngIf="isAdmin" style="margin-bottom: 20px;">
+    <a routerLink="/job-management" class="job-list-link">Go to Job Management</a>
+  </div>
 
   <!-- Main Content Section Below Search Bar -->
   <div class="main-content-section d-flex justify-content-center">
+
     <div class="content-container d-flex" style="width: 80%; background-color: #f5f5f5;padding: 1rem; border-radius: 8px;">
       <!-- Job List Section (70%) -->
       <div class="job-list-section" style="width: 70%; background-color: #f5f5f5; padding: 1rem; border-radius: 8px;">
@@ -91,10 +95,7 @@
         </div>
     
       </div>      
-      <!-- Navigation Link to Job List Page -->
-  <div class="navigation">
-    <button routerLink="/jobmanagement" class="btn btn-primary">Go to Job Management</button>
-  </div>
+   
     </div>
   </div>
 

@@ -1,21 +1,63 @@
-.confirmation-modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    background: white;
-    border: 1px solid #ccc;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-  }
-  
-  .confirmation-modal p {
-    margin-bottom: 15px;
-  }
-  
-  .confirmation-modal .btn-secondary {
-    display: block;
-    margin: 0 auto;
-  }
-  
+.job-posting-container {
+  width: 80%;
+  margin: auto; /* Center the container */
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.job-list-link {
+  display: block; /* Make it a block element */
+  margin-bottom: 20px; /* Add space below */
+  font-size: 16px; /* Increase font size */
+  color: #007bff; /* Link color */
+  text-decoration: none; /* Remove underline */
+}
+
+.job-list-link:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+
+
+.job-posting-form .form-group {
+  margin-bottom: 20px;
+}
+
+.job-posting-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.job-posting-form input,
+.job-posting-form textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.job-posting-form textarea {
+  height: 100px; /* Increase job description field height */
+  resize: vertical;
+}
+
+.submit-button {
+  text-align: center;
+}
+
+.submit-button button {
+  padding: 12px 24px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-button button:hover {
+  background-color: #0056b3;
+}

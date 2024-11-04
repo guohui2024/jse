@@ -54,6 +54,18 @@ export class UserService {
     return this.httpClient.post(`${environment.apiUrl}/users/register`, user);
   }
 
+
+  // Function to get the current user's role from local storage
+  getCurrentUserRole(): string | null {
+    const user = localStorage.getItem('user'); // Retrieve user data from local storage
+    if (user) {
+      const userData = JSON.parse(user); // Parse user data
+      console.log('user is ' + userData + '; role is ' + userData.role);
+      return userData.role; // Return the user's role
+    }
+    return null; // Return null if no user data exists
+  }
+
   getUserList() {
     return this.httpClient.get<User[]>(`${environment.apiUrl}/users`);
   }

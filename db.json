@@ -25,8 +25,27 @@
       "status": "approved"
     },
     {
-      "status": "approved",
+      "status": "new",
+      "title": "Graphic Designer",
+      "description": "Create visual content for various media.",
+      "employer": "Design Studio",
+      "employerIcon": "https://example.com/logo2.png",
+      "salary": "$30-40",
+      "jobLevel": "Junior",
+      "location": "Los Angeles, CA",
+      "jobType": "Part-Time",
       "id": "3"
+    },
+    {
+      "id": "7664",
+      "title": "teacher",
+      "description": "teach elementary kids",
+      "jobLevel": "junior",
+      "salary": "15/hour",
+      "employer": "Kumon",
+      "location": "clarksville, md",
+      "jobType": "part-time",
+      "status": "new"
     }
   ],
   "users": [
@@ -77,23 +96,32 @@
       "school": "",
       "grade": "",
       "jobId": "1"
+    },
+    {
+      "id": "cb69",
+      "name": "",
+      "email": "guohui.wang@hotmail.com",
+      "phone": "6266965271",
+      "school": "rhhs",
+      "grade": "10",
+      "jobId": "1"
     }
   ],
-  "employers":[
+  "employers": [
     {
       "id": "1",
       "name": "Tech Company",
-      "logo":""
+      "logo": ""
     },
     {
       "id": "2",
       "name": "Design Studio",
-      "logo":""
+      "logo": ""
     },
     {
       "id": "3",
       "name": "Kumon",
-      "logo":""
+      "logo": ""
     }
   ]
 }

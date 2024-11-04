@@ -10,6 +10,14 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.job-list-link {
+  display: block; /* Make it a block element */
+  margin-bottom: 20px; /* Add space below */
+  font-size: 16px; /* Increase font size */
+  color: #007bff; /* Link color */
+  text-decoration: none; /* Remove underline */
+}
+
 .job-card .card {
   border-radius: 8px;
   border: none;

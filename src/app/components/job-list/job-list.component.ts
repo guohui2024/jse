@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Job } from 'src/app/models/job';
 import { JobService } from 'src/app/services/job.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-job-list',
@@ -9,6 +10,8 @@ import { JobService } from 'src/app/services/job.service';
   styleUrls: ['./job-list.component.css']
 })
 export class JobListComponent implements OnInit {
+
+  isAdmin: boolean = false; // Variable to check if the user is an admin
   jobs: Job[] = []; // All jobs
   filteredJobs: Job[] = []; // Jobs to display based on the search
   searchKeyword: string = ''; // To bind with the search input
@@ -31,14 +34,22 @@ export class JobListComponent implements OnInit {
   jobLevels: string[] = []; // Unique job levels
   locations: string[] = []; // Unique locations
 
-  constructor(private jobService: JobService, private router: Router) {}
+  constructor(private jobService: JobService, private router: Router,private userService: UserService) {}
 
   ngOnInit(): void {
     this.loadJobs();
+    this.checkUserRole(); // Check the user role on initialization
+  }
+
+  checkUserRole() {
+    // Assuming you have a method to get the user's role
+    const userRole = this.userService.getCurrentUserRole(); // Adjust this based on your implementation
+    console.log('user role is ' + userRole);
+    this.isAdmin = userRole === 'admin'; // Set isAdmin based on user role
   }
 
   loadJobs(): void {
-    this.jobService.getJobs().subscribe((data: Job[]) => {
+    this.jobService.getApprovedJobs().subscribe((data: Job[]) => {
       this.jobs = data;
       console.log(this.jobs);
       this.filteredJobs = data; // Initialize filteredJobs with all jobs

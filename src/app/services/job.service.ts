@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Job } from '../models/job';
 import { Application } from '../models/Application';
 
@@ -35,6 +35,12 @@ export class JobService {
     return this.http.get<Job[]>(this.jobUrl);
   }
 
+  getApprovedJobs(): Observable<any[]> {
+    return this.http.get<any[]>(this.jobUrl).pipe(
+      map(jobs => jobs.filter(job => job.status === 'approved'))
+    );
+  }
+
   getJobById(id: string): Observable<Job> {
     return this.http.get<Job>(`${this.jobUrl}/${id}`);
   }
@@ -57,6 +63,6 @@ export class JobService {
   }
 
   saveJob(jobData: any): Observable<any> {
-    return this.http.post<any>(`${this.jobUrl}/jobs`, jobData);
+    return this.http.post<any>(`${this.jobUrl}`, jobData);
   }
 }

@@ -1,7 +1,7 @@
 <div class="job-apply-container">
   <!-- Left Section: Job Application Form -->
     <div class="applicant-form" style="width: 60%;">
-      <form [formGroup]="applicationForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="applicationForm" (ngSubmit)="openConfirmation()">
         <div>
           <label for="name">Name:</label>
           <input id="name" formControlName="name" required />
@@ -44,6 +44,18 @@
         </div>
   
         <button type="submit"  class="submit-button">Submit</button>
+      
+       
+<!-- Confirmation Modal -->
+<app-confirmation-modal 
+*ngIf="showConfirmationModal"
+title="Application Confirmation"
+message="Are you sure you want to submit this application?"
+confirmText="Yes, Submit"
+cancelText="No, Cancel"
+(confirmed)="confirmApplication()"
+(cancelled)="cancelApplication()">
+</app-confirmation-modal>
       </form>
     </div>
   

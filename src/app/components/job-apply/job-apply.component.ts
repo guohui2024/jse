@@ -95,44 +95,32 @@ export class JobApplyComponent implements OnInit {
       this.applicant.resume = file; // Store the file object
     }
   }
-  
-  onSubmit() {
+
+  showConfirmationModal: boolean = false;
+
+  openConfirmation() {
+    this.showConfirmationModal = true;
+  }
+
+  confirmApplication() {
     var applicantData = this.applicationForm.value;
     applicantData.jobId=this.job.id;
     applicantData.userId=this.user.id;
     const jobTitle = this.job.title; // Get the job title
-  
-    // Create the modal instance
-    const modalRef = this.modalService.open(ConfirmationModalComponent, {
-      centered: true,
-      size: 'lg', // Optional: specify size ('sm', 'lg', etc.)
-      backdrop: 'static' // Prevent closing when clicking outside
-    });
-    modalRef.componentInstance.applicantData = applicantData; // Pass applicant data
-    modalRef.componentInstance.jobTitle = jobTitle; // Pass job title
-  
-    modalRef.result.then(
-      (result) => {
-        if (result === 'confirm') {
-          // Proceed with form submission or saving
-          this.saveApplication(applicantData); // Call your save method
-        }
-      },
-      (reason) => {
-        console.log('Modal dismissed:', reason);
-      }
-    );
+    
+    this.showConfirmationModal = false;
+
+    // Call the service to save the application data
+    this.jobService.saveApplication(applicantData)
+      .subscribe(response => {
+        console.log("Application saved:", response);
+        alert("Your application has been submitted successfully!");
+      }, error => {
+        console.error("Error saving application:", error);
+      });
   }
 
-  saveApplication(applicantData: any) {
-    // Your logic to save the applicant data
-    this.jobService.saveApplication(applicantData).subscribe(
-      (response) => {
-        console.log('Application submitted successfully:', response);
-      },
-      (error) => {
-        console.error('Error submitting application:', error);
-      }
-    );
+  cancelApplication() {
+    this.showConfirmationModal = false;
   }
 }

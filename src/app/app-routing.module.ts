@@ -14,7 +14,7 @@ import { JobPostingComponent } from './components/job-posting/job-posting.compon
 
 const routes: Routes = [
   { path: 'login',    component: LoginComponent  },
-  { path: 'jobmanagement', component: JobManagementComponent, canActivate: [AdminGuard] },  //, 
+  { path: 'jobmanagement', component: JobManagementComponent },  //, , canActivate: [AdminGuard]
   { path: 'jobposting', component: JobPostingComponent }, //, canActivate: [EmployerGuard] 
   { path: 'register', component: RegisterComponent },
   { path: 'joblist',     component: JobListComponent },
