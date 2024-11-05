@@ -4,11 +4,11 @@
       "id": "1",
       "title": "Software Engineer",
       "description": "Develop and maintain software applications.",
-      "employer": "Tech Company",
-      "employerIcon": "https://example.com/logo.png",
+      "employer": "FBI",
+      "logo": "./assets/resource/fbi.jpg",
       "salary": "$30-40",
       "level": "Mid-Level",
-      "location": "New York, NY",
+      "location": "Greenbelt, MD",
       "jobType": "Full-Time",
       "status": "approved"
     },
@@ -16,23 +16,23 @@
       "id": "2",
       "title": "Graphic Designer",
       "description": "Create visual content for various media.",
-      "employer": "Design Studio",
-      "employerIcon": "https://example.com/logo2.png",
+      "employer": "FBI",
+      "logo": "./assets/resource/fbi.jpg",
       "salary": "$30-40",
       "jobLevel": "Junior",
-      "location": "Los Angeles, CA",
+      "location": "Greenbelt, MD",
       "jobType": "Part-Time",
       "status": "approved"
     },
     {
       "status": "new",
-      "title": "Graphic Designer",
-      "description": "Create visual content for various media.",
-      "employer": "Design Studio",
-      "employerIcon": "https://example.com/logo2.png",
+      "title": "Cashier",
+      "description": "Cashier",
+      "employer": "Chickfila",
+      "logo": "./assets/resource/chickfila.jpg",
       "salary": "$30-40",
       "jobLevel": "Junior",
-      "location": "Los Angeles, CA",
+      "location": "Clarksville, MD",
       "jobType": "Part-Time",
       "id": "3"
     },
@@ -76,6 +76,12 @@
       "email": "brandonwyu@gmail.com",
       "password": "Brandon@2008",
       "role": "admin"
+    },
+    {
+      "id": "f41c",
+      "username": "emp",
+      "email": "emp@test",
+      "password": "emp"
     }
   ],
   "applications": [
@@ -119,18 +125,18 @@
   "employers": [
     {
       "id": "1",
-      "name": "Tech Company",
-      "logo": ""
+      "name": "FBI",
+      "logo": "./assets/resource/fbi.jpg"
     },
     {
       "id": "2",
-      "name": "Design Studio",
-      "logo": ""
+      "name": "Kumon",
+      "logo": "./assets/resource/Kumon-Logo.png"
     },
     {
       "id": "3",
-      "name": "Kumon",
-      "logo": ""
+      "name": "ChickFila",
+      "logo": "./assets/resource/chickfila.jpg"
     }
   ]
 }

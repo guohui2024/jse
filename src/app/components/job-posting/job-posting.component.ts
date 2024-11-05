@@ -23,6 +23,7 @@ export class JobPostingComponent implements OnInit {
     jobLevel: '',
     salary: '',
     employer: '',
+    logo:'',
     location: '',
     jobType: '',
     status: ''

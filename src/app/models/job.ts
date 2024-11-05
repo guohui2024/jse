@@ -4,7 +4,7 @@ export interface Job {
     employer: string;
     salary: string;
     description: string;
-    employerIcon: string;
+    logo: string;
     jobLevel: string;
     location:string;
     jobType: string; // e.g., "Full-Time" or "Part-Time"

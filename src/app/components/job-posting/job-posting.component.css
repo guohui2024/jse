@@ -19,6 +19,50 @@
   text-decoration: underline; /* Add underline on hover */
 }
 
+.custom-dropdown {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.selected-employer {
+  display: flex;
+  align-items: center;
+}
+
+.employer-logo {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.dropdown-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  max-height: 150px;
+  overflow-y: auto;
+  z-index: 1;
+}
+
+.dropdown-option {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-option:hover {
+  background-color: #f1f1f1;
+}
+
 
 .job-posting-form .form-group {
   margin-bottom: 20px;

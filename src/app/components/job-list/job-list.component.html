@@ -16,23 +16,20 @@
     <a routerLink="/job-management" class="job-list-link">Go to Job Management</a>
   </div>
 
-  <!-- Main Content Section Below Search Bar -->
-  <div class="main-content-section d-flex justify-content-center">
-
-    <div class="content-container d-flex" style="width: 80%; background-color: #f5f5f5;padding: 1rem; border-radius: 8px;">
+    <div class="content-container d-flex" style="width: 90%; background-color: #f5f5f5;padding: 1rem; border-radius: 8px;">
       <!-- Job List Section (70%) -->
       <div class="job-list-section" style="width: 70%; background-color: #f5f5f5; padding: 1rem; border-radius: 8px;">
         <div *ngFor="let job of filteredJobs" class="job-card mb-3">
           <div class="card shadow-sm p-3">
             <!-- Job Title -->
-            <h5 class="job-title text-primary">{{ job.title }} || {{ job.id }}</h5>
+            <h5 class="job-title text-primary">{{ job.title }} </h5>
             <!-- Job Description -->
             <p class="job-description mb-2">{{ job.description }}</p>
             <div class="job-info-meta d-flex">
               <!-- Job Info on the left -->
               <div class="job-info" style="flex: 0 0 60%;">
                 <div class="employer d-flex align-items-center mb-1">
-                  <img *ngIf="job.employerIcon" [src]="job.employerIcon" class="employer-logo mr-2" alt="Employer Logo" width="30" height="30" />
+                  <img *ngIf="job.logo" [src]="job.logo" class="employer-logo mr-2" alt="Employer Logo" width="30" height="30" />
                   <span class="font-weight-bold">{{ job.employer }}</span>
                 </div>
                 <p class="location text-muted">{{ job.location }}</p>
@@ -51,51 +48,59 @@
         </div>      
       </div>      
       
-      <div class="filter-section" style="width: 30%;">
-        <h4>Filter Jobs</h4>
-      
-        <!-- Title Filter -->
-        <div class="filter-group">
-          <label for="title-filter">Title:</label>
-          <input
-            type="text"
-            id="title-filter"
-            class="form-control"
-            [(ngModel)]="titleFilter"
-            (input)="applyFilters()"
-            placeholder="Search by title"
-          />
-        </div>
-      
-        <!-- Employer Filter -->
-        <!-- Example filter for employer -->
-        <div class="filter-category">
-          <h6>Employer</h6>
-          <div *ngFor="let employer of availableEmployers">
-            <input type="checkbox" [checked]="selectedEmployers[employer]" (change)="onEmployerChange(employer, $event)" />
-            <label>{{ employer }}</label>
-          </div>
-        </div> 
-        <h5>Filter by Location</h5>
-        <div *ngFor="let location of availableLocations">
-          <input type="checkbox"  [checked]="selectedLocations[location]" (change)="onLocationChange(location, $event)">
-          {{ location }}
-        </div>
-      
-        <h5>Filter by Job Type</h5>
-        <div *ngFor="let jobType of availableJobTypes">
-          <input type="checkbox" [checked]="selectedJobTypes[jobType]" (change)="onJobTypeChange(jobType, $event)">
-          {{ jobType }}
-        </div>
-      
-        <h5>Filter by Job Level</h5>
-        <div *ngFor="let jobLevel of availableJobLevels">
-          <input type="checkbox" [checked]="selectedJobLevels[jobLevel]" (change)="onJobLevelChange(jobLevel, $event)" >
-          {{ jobLevel }}
-        </div>
-    
-      </div>      
-   
+  <div class="filter-section">
+    <h4>Filter Jobs</h4>
+  
+    <!-- Title Filter -->
+    <div class="filter-group">
+      <label for="title-filter">Title:</label>
+      <input
+        type="text"
+        id="title-filter"
+        class="form-control"
+        [(ngModel)]="titleFilter"
+        (input)="applyFilters()"
+        placeholder="Search by title"
+      />
     </div>
-  </div>
+  
+    <!-- Employer Filter -->
+    <div class="filter-category">
+      <h5>Employer</h5>
+      <div *ngFor="let employer of availableEmployers" class="checkbox-group">
+        <input type="checkbox" [checked]="selectedEmployers[employer]" (change)="onEmployerChange(employer, $event)" />
+        <label>{{ employer }}</label>
+      </div>
+    </div>
+  
+    <!-- Location Filter -->
+    <div class="filter-category">
+      <h5>Location</h5>
+      <div *ngFor="let location of availableLocations" class="checkbox-group">
+        <input type="checkbox" [checked]="selectedLocations[location]" (change)="onLocationChange(location, $event)">
+        <label>{{ location }}</label>
+      </div>
+    </div>
+  
+    <!-- Job Type Filter -->
+    <div class="filter-category">
+      <h5>Job Type</h5>
+      <div *ngFor="let jobType of availableJobTypes" class="checkbox-group">
+        <input type="checkbox" [checked]="selectedJobTypes[jobType]" (change)="onJobTypeChange(jobType, $event)">
+        <label>{{ jobType }}</label>
+      </div>
+    </div>
+  
+    <!-- Job Level Filter -->
+    <div class="filter-category">
+      <h5>Job Level</h5>
+      <div *ngFor="let jobLevel of availableJobLevels" class="checkbox-group">
+        <input type="checkbox" [checked]="selectedJobLevels[jobLevel]" (change)="onJobLevelChange(jobLevel, $event)">
+        <label>{{ jobLevel }}</label>
+      </div>
+    </div>
+  </div> 
+</div>
 
+
+  
