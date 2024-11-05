@@ -9,14 +9,15 @@ export class AdminGuard implements CanActivate {
 
   canActivate(): boolean {
     const user = JSON.parse(localStorage.getItem('user') || '{}');
-    
+
     // Check if the user exists and has the admin role
     if (user && user.role === 'admin') {
-      return true; // Allow access
+      console.log("This is admin login: " + user.role);
+      return true; // Allow access if user is admin
     }
 
-    // If not admin, redirect to another page (e.g., home)
-    this.router.navigate(['/jobmanagement']);
+    // If not admin, redirect to the home page
+    this.router.navigate(['/']);
     return false; // Deny access
   }
 }

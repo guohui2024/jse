@@ -25,15 +25,7 @@
       "status": "approved"
     },
     {
-      "status": "new",
-      "title": "Cashier",
-      "description": "Cashier",
-      "employer": "Chickfila",
-      "logo": "./assets/resource/chickfila.jpg",
-      "salary": "$30-40",
-      "jobLevel": "Junior",
-      "location": "Clarksville, MD",
-      "jobType": "Part-Time",
+      "status": "approved",
       "id": "3"
     },
     {

@@ -1,7 +1,7 @@
 .main-content-section {
   width: 100%; /* Adjust width if needed */
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
   background-color: #f9f9f9; /* Light grey as a fallback */
   
   /* Optional styling */
@@ -23,6 +23,27 @@
   font-size: 16px; /* Increase font size */
   color: #007bff; /* Link color */
   text-decoration: none; /* Remove underline */
+  border-radius: 20px; /* Rounded corners */
+  font-weight: bold;    /* Bold text */
+  text-transform: uppercase; /* Uppercase text */
+}
+
+.job-list-link:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+  color: white; /* Text color on hover */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.custom-small-btn {
+  padding: 0.25rem 0.5rem; /* Reduce padding for a smaller button */
+  font-size: 0.75rem; /* Smaller font size */
+  border-radius: 10px; /* Slightly rounded corners */
+}
+
+.custom-small-btn:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+  color: white; /* Text color on hover */
+  transition: background-color 0.3s; /* Smooth transition */
 }
 
 .job-card .card {

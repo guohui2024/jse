@@ -1,11 +1,29 @@
 .job-management {
+  display: flex; /* Use flexbox to layout sidebar and job grid */
   padding: 20px;
 }
+
+.navigation {
+  width: 200px; /* Fixed width for the sidebar */
+  background-image: url('/assets/resource/rh2.jpg'), url('/assets/resource/rh1.jpg'), 
+                    url('/assets/resource/rh3.jpg'), url('/assets/resource/rh4.jpg');
+  background-size: cover; /* Ensure background images cover the sidebar */
+  background-position: center; /* Center the background images */
+  background-repeat: no-repeat; /* Prevent background images from repeating */
+  padding: 20px; /* Add padding around the sidebar content */
+  display: flex; /* Use flexbox for vertical alignment */
+  flex-direction: column; /* Stack items vertically */
+  justify-content: flex-start; /* Start from the top */
+  gap: 15px; /* Space between navigation items */
+}
+
 
 .job-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 columns */
   gap: 20px; /* Space between the cards */
+  padding: 1rem;
+  flex-grow: 1; /* Allow the grid to take remaining space */
 }
 
 .job-card {
@@ -16,12 +34,17 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.navigation {
-  margin-top: 20px;
-  text-align: center;
-}
-
 .navigation .btn {
-  padding: 10px 20px;
+  padding: 10px 20px; /* Padding for buttons */
+  width: 100%; /* Make buttons take full width */
+  text-align: center; /* Center the button text */
+  background-color: #007bff; /* Bootstrap primary color */
+  color: white; /* Button text color */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Change cursor on hover */
 }
 
+.navigation .btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}

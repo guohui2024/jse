@@ -37,37 +37,29 @@ export class LoginComponent {
     const { username, password } = this.loginForm.value;
     this.authService.getUserByUsername(username as string).subscribe(
       response => {
+        // Check if a user was found and the password matches
         if (response.length > 0 && response[0].password === password) {
-          // Save user to local storage
-          localStorage.setItem('user', JSON.stringify(response));
-
-          // Retrieve id from JobService
-          const id = this.jobService.getid();
-          console.log("get id from jobService: " + id);
-
-          if( id != null ) {
-            console.log('to jobapply page: ');
-            this.router.navigate(['/jobapply']);
-          }else{
-            console.log('to joblist page');
-            this.router.navigate(['/joblist']);
-          }
-          
-          // In your login method, after a successful login:
-          if (response[0].role === 'employer') {
-            this.router.navigate(['/job-posting']);
+          const user = response[0]; // Get the user object
+  
+          // Save the user object to local storage
+          localStorage.setItem('user', JSON.stringify(user));
+  
+          // Navigate based on the user's role and jobService id
+          if (user.role === 'employer') {
+            this.router.navigate(['/jobposting']);
+          } else if (user.role === 'admin') {
+            this.router.navigate(['/jobmanagement']);
           } else {
-            this.router.navigate(['/home']); // or any other page for other roles
+            this.router.navigate(['/']); // or any other page for other roles
           }
-
         } else {
-          this.errorFlag = true;
+          this.errorFlag = true; // Set error flag if login failed
         }
       },
       error => {
         this.msgService.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
       }
-
-    )
+    );
   }
+  
 }
