@@ -1,145 +1,107 @@
-/* Set the main container width and center it */
+/* Container Styling */
 .job-apply-container {
-  width: 100%;
-  margin: 20 auto;
-  margin-left: 0;
-  margin-top: 30px;
-  margin-bottom: 30px;
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
+  background-color: #f5f5f5;
   padding: 20px;
-  border: 1px solid #ddd;
   border-radius: 8px;
-  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 1200px; /* Increased max width for wider screens */
+  margin: 20px auto;
 }
 
-/* Left section styling */
-.application-form {
-  width: 60%;
-  padding: 20px; /* Adjust padding for overall spacing */
-  display: flex;
-  flex-direction: column;
+.applicant-form, .job-info {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.application-form {
-  width: 60%;
-  padding: 20px; /* Adjust overall padding */
-  display: flex;
-  flex-direction: column;
-}
-
-.application-form > div {
-  margin-bottom: 15px; /* Space below each form group */
-  padding: 5px; /* Padding within each form group */
-}
-
-.application-form h2 {
-  font-size: 1.5rem;
-  margin-bottom: 15px; /* Space below the heading */
-}
-
-
-.application-form input,
-.application-form select {
-  margin-bottom: 20px; /* Space below inputs and selects */
-}
-
+/* Form Styling */
 .form-group {
   margin-bottom: 15px;
 }
 
-.form-group label {
-  font-weight: bold;
+label {
   display: block;
-  margin-bottom: 15px;
-  padding: 15px;
-}
-
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group input[type="tel"],
-.form-group select {
-  width: 100%;
-  padding: 18px;
-  font-size: 1.5rem;
-}
-
-/* Increase size of file input button */
-.file-input {
-  width: 100%;
-  padding: 8px;
-  font-size: 1.5rem;
-}
-
-/* Right section styling */
-.job-info {
-  width: 40%;
-  border-left: 1px solid #ddd;
-  padding-left: 20px;
-}
-
-.job-info h2 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-}
-
-.job-info p {
-  margin: 8px 0;
-}
-
-/* Error text styling */
-.error-text {
-  color: red;
-  font-size: 0.875rem;
-}
-
-.job-title {
-  font-size: 24px; /* Adjust as needed */
   font-weight: bold;
-  margin-bottom: 10px; /* Space below the title */
+  margin-bottom: 5px;
 }
 
-.upload-label {
-  display: inline-block;
-  padding: 8px 16px;
-  background-color: #007bff;
-  color: white;
+input, select {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ddd;
   border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
 }
 
-.upload-label:hover {
-  background-color: #0056b3;
-}
-
-.job-employer,
-.job-location,
-.job-salary,
-.job-type {
-  margin: 10px 0; /* Add spacing between lines */
-}
-
-.job-description strong {
-  display: inline; /* Ensure strong label is inline */
-}
-
-.job-description br {
-  content: ""; /* Ensure the line break is handled */
+.error-message {
+  font-size: 0.9em;
+  color: red;
 }
 
 .submit-button {
-  width: 80%; /* Double the width */
-  height: 50px; /* Increase the height */
-  background: linear-gradient(to right, #4caf50, #8bc34a); /* Gradient background */
-  color: white; /* Text color */
-  border: none; /* Remove border */
-  border-radius: 5px; /* Rounded corners */
-  font-size: 16px; /* Adjust font size */
-  cursor: pointer; /* Pointer cursor on hover */
+  text-align: center;
 }
 
-.submit-button:hover {
-  opacity: 0.8; /* Slightly transparent on hover */
+.btn {
+  padding: 12px 20px;
+  font-size: 1em;
+  color: #ffffff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
+.btn:hover {
+  background-color: #0056b3;
+}
+
+/* Job Information Styling */
+.job-info h2 {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.job-info p {
+  font-size: 1em;
+  color: #555;
+}
+
+.job-info p strong {
+  color: #007bff;
+}
+/* Responsive Layout */
+@media (min-width: 1024px) {
+  .applicant-form {
+    width: 65%; /* Expanded width for wider screens */
+  }
+
+  .job-info {
+    width: 30%; /* Adjusted width to better balance with form */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .applicant-form {
+    width: 60%;
+  }
+
+  .job-info {
+    width: 35%;
+  }
+}
+
+@media (max-width: 767px) {
+  .job-apply-container {
+    flex-direction: column;
+  }
+
+  .applicant-form, .job-info {
+    width: 100%;
+  }
+}

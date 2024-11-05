@@ -1,64 +1,65 @@
 <div class="job-apply-container">
   <!-- Left Section: Job Application Form -->
-    <div class="applicant-form" style="width: 60%;">
-      <form [formGroup]="applicationForm" (ngSubmit)="openConfirmation()">
-        <div>
-          <label for="name">Name:</label>
-          <input id="name" formControlName="name" required />
-        </div>
+  <div class="applicant-form">
+    <form [formGroup]="applicationForm" (ngSubmit)="openConfirmation()">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input id="name" formControlName="name" required />
+      </div>
 
-        <div>
-          <label for="grade">Grade:</label>
-          <select id="grade" formControlName="grade">
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-          </select>
-        </div>
+      <div class="form-group">
+        <label for="grade">Grade:</label>
+        <select id="grade" formControlName="grade">
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select>
+      </div>
 
-        <div>
-          <label for="email">Email:</label>
-          <input id="email" formControlName="email" required placeholder="example@domain.com" />
-          <div *ngIf="applicationForm.get('email')?.invalid && applicationForm.get('email')?.touched">
-            Invalid email format.
-          </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input id="email" formControlName="email" required placeholder="example@domain.com" />
+        <div *ngIf="applicationForm.get('email')?.invalid && applicationForm.get('email')?.touched" class="error-message">
+          Invalid email format.
         </div>
-    
-        <div>
-          <label for="phone">Phone Number:</label>
-          <input id="phone" formControlName="phone" required placeholder="1234567890" />
-          <div *ngIf="applicationForm.get('phone')?.invalid && applicationForm.get('phone')?.touched">
-            Invalid phone number format.
-          </div>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input id="phone" formControlName="phone" required placeholder="1234567890" />
+        <div *ngIf="applicationForm.get('phone')?.invalid && applicationForm.get('phone')?.touched" class="error-message">
+          Invalid phone number format.
         </div>
-  
-        <div>
-          <label for="school">School:</label>
-          <input id="school" formControlName="school" required />
-        </div>        
-        
-        <div class="form-group">
-          <label for="resume">Upload Resume:</label>
-          <input type="file" id="resume" (change)="onFileChange($event)" />
-        </div>
-  
-        <button type="submit"  class="submit-button">Submit</button>
-      
-       
-<!-- Confirmation Modal -->
-<app-confirmation-modal 
-*ngIf="showConfirmationModal"
-title="Application Confirmation"
-message="Are you sure you want to submit this application?"
-confirmText="Yes, Submit"
-cancelText="No, Cancel"
-(confirmed)="confirmApplication()"
-(cancelled)="cancelApplication()">
-</app-confirmation-modal>
-      </form>
-    </div>
-  
+      </div>
+
+      <div class="form-group">
+        <label for="school">School:</label>
+        <input id="school" formControlName="school" required />
+      </div>        
+
+      <div class="form-group">
+        <label for="resume">Upload Resume:</label>
+        <input type="file" id="resume" (change)="onFileChange($event)" />
+      </div>
+
+      <div class="form-group submit-button">
+        <button type="submit" class="btn">Submit</button>
+      </div>
+
+      <!-- Confirmation Modal -->
+      <app-confirmation-modal 
+        *ngIf="showConfirmationModal"
+        title="Application Confirmation"
+        message="Are you sure you want to submit this application?"
+        confirmText="Yes, Submit"
+        cancelText="No, Cancel"
+        (confirmed)="confirmApplication()"
+        (cancelled)="cancelApplication()">
+      </app-confirmation-modal>
+    </form>
+  </div>
+
   <!-- Right Section: Job Information -->
   <div class="job-info">
     <h2 class="job-title">{{ job.title }}</h2>
@@ -66,7 +67,6 @@ cancelText="No, Cancel"
     <p class="job-location"><strong>Location:</strong> {{ job.location }}</p>
     <p class="job-salary"><strong>Salary:</strong> {{ job.salary }}</p>
     <p class="job-type"><strong>Job Type:</strong> {{ job.type }}</p>
-    <p class="job-description"><strong>Description:</strong><br>{{ job.description }}</p> <!-- Use <br> to force a new line -->
+    <p class="job-description"><strong>Description:</strong><br>{{ job.description }}</p>
   </div>
-  
 </div>
