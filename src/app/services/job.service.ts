@@ -41,6 +41,12 @@ export class JobService {
     );
   }
 
+  getValidJobs(): Observable<any[]> {
+    return this.http.get<any[]>(this.jobUrl).pipe(
+      map(jobs => jobs.filter(job => job.status !== 'deleted'))
+    );
+  }
+
   getJobById(id: string): Observable<Job> {
     return this.http.get<Job>(`${this.jobUrl}/${id}`);
   }
@@ -54,8 +60,8 @@ export class JobService {
     return this.http.get<any[]>(this.jobUrl);
   }
 
-  updateJob(id: number, job: any): Observable<any> {
-    return this.http.put(`${this.jobUrl}/${id}`, job);
+  updateJob(id: number, jobStatus: any): Observable<any> {
+    return this.http.put(`${this.jobUrl}/${id}`, jobStatus);
   }
 
   getEmployers(): Observable<any[]> {

@@ -1,58 +1,65 @@
-<div class="job-posting-container">
-  <!-- Route Link to Job Listing Page -->
-  <a routerLink="/jobs" class="job-list-link">Back to Job List</a>
-  
-  <form (ngSubmit)="openConfirmation()" class="job-posting-form">
-    <div class="form-group">
-      <label for="title">Job Title:</label>
-      <input id="title" type="text" [(ngModel)]="job.title" name="title" required />
-    </div>
+<div class="job-posting-page">
+  <!-- Sidebar Navigation -->
+  <div class="navigation">
+    <a routerLink="/joblist" class="btn">Back to Job List</a>
+    <a routerLink="/employer-jobs" class="btn">View My Listings</a>
+    <a routerLink="/applications" class="btn">View Applications</a>
+  </div>
 
-    <div class="form-group">
-      <label for="description">Description:</label>
-      <textarea id="description" [(ngModel)]="job.description" name="description" required></textarea>
-    </div>
+  <!-- Job Posting Form -->
+  <div class="job-posting-container">   
+    <form [formGroup]="jobPostingForm" (ngSubmit)="openConfirmation()" class="job-posting-form">
+      <div class="form-group">
+        <label for="title">Job Title:</label>
+        <input id="title" type="text" formControlName="title" required />
+      </div>
 
-    <div class="form-group">
-      <label for="level">Job Level:</label>
-      <select id="level" [(ngModel)]="job.jobLevel" name="level" required>
-        <option value="" disabled selected>Select Job Level</option>
-        <option value="junior">Junior</option>
-        <option value="senior">Senior</option>
-      </select>
-    </div>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea id="description" formControlName="description" required></textarea>
+      </div>
 
-    <div class="form-group">
-      <label for="salary">Salary:</label>
-      <input id="salary" type="text" [(ngModel)]="job.salary" name="salary" required />
-    </div>
+      <div class="form-group">
+        <label for="level">Job Level:</label>
+        <select id="level" formControlName="level" required>
+          <option value="" disabled selected>Select Job Level</option>
+          <option value="junior">Junior</option>
+          <option value="senior">Senior</option>
+        </select>
+      </div>
 
-    <div class="form-group">
-      <label for="employer">Employer:</label>
-      <select id="employer" [(ngModel)]="job.employer" name="employer" required>
-        <option value="" disabled selected>Select Employer</option>
-        <option *ngFor="let employer of employers" [value]="employer.name">{{ employer.name }}</option>
-      </select>
-    </div>
+      <div class="form-group">
+        <label for="salary">Salary:</label>
+        <input id="salary" type="text" formControlName="salary" required />
+      </div>
 
-    <div class="form-group">
-      <label for="location">Location:</label>
-      <input id="location" type="text" [(ngModel)]="job.location" name="location" required />
-    </div>
+      <div class="form-group">
+        <label for="employer">Employer:</label>
+        <select id="employer" formControlName="employer" required>
+          <option value="" disabled selected>Select Employer</option>
+          <option *ngFor="let employer of employers" [value]="employer.name">{{ employer.name }}</option>
+        </select>
+      </div>
 
-    <div class="form-group">
-      <label for="jobType">Job Type:</label>
-      <select id="jobType" [(ngModel)]="job.jobType" name="jobType" required>
-        <option value="" disabled selected>Select Job Type</option>
-        <option value="full-time">Full-Time</option>
-        <option value="part-time">Part-Time</option>
-      </select>
-    </div>
+      <div class="form-group">
+        <label for="location">Location:</label>
+        <input id="location" type="text" formControlName="location" required />
+      </div>
 
-    <div class="form-group submit-button">
-      <button type="submit">Submit Job Posting</button>
-    </div>
-  </form>
+      <div class="form-group">
+        <label for="jobType">Job Type:</label>
+        <select id="jobType" formControlName="type" required>
+          <option value="" disabled selected>Select Job Type</option>
+          <option value="full-time">Full-Time</option>
+          <option value="part-time">Part-Time</option>
+        </select>
+      </div>
+
+      <div class="form-group submit-button">
+        <button type="submit">Submit Job Posting</button>
+      </div>
+    </form>
+  </div>
 
   <app-confirmation-modal 
     *ngIf="showConfirmationModal"

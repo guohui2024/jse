@@ -8,6 +8,7 @@ import { JobService } from 'src/app/services/job.service';
 })
 export class JobManagementComponent implements OnInit {
   jobs: any[] = []; // Array to hold job data
+  confirmationMessage: string | null = null;
 
   constructor(private jobService: JobService) {}
 
@@ -16,19 +17,31 @@ export class JobManagementComponent implements OnInit {
   }
 
   loadJobs(): void {
-    this.jobService.getJobs().subscribe((data: any) => {
+    this.jobService.getValidJobs().subscribe((data: any) => {
       this.jobs = data;
     });
   }
 
   updateJobStatus(job: any): void {
-    this.jobService.updateJob(job.id, { status: job.status }).subscribe(
+    this.jobService.updateJob(job.id, job).subscribe(
       (      response: any) => {
         console.log('Job status updated:', response);
+         // Show the confirmation message on successful save
+         this.showConfirmationMessage("Job status updated successfully!");
+
+        // Optionally, hide the message after a few seconds
+        setTimeout(() => {
+          this.confirmationMessage = null;
+        }, 3000); // Hide after 3 seconds
       },
-      (      error: any) => {
-        console.error('Error updating job status:', error);
+      error => {
+        console.error("Error updating job status:", error);
       }
     );
+  }
+
+   // Method to show confirmation message
+   private showConfirmationMessage(message: string) {
+    this.confirmationMessage = message;
   }
 }

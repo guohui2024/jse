@@ -1,6 +1,7 @@
 .job-management {
   display: flex; /* Use flexbox to layout sidebar and job grid */
-  padding: 20px;
+  padding: 1rem;
+  background-image: url('/assets/resource/rh4.jpg');
 }
 
 .navigation {

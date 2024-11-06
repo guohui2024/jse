@@ -25,19 +25,52 @@
       "status": "approved"
     },
     {
-      "status": "approved",
-      "id": "3"
+      "status": "deleted",
+      "id": "b8a7"
     },
     {
-      "id": "7664",
-      "title": "teacher",
-      "description": "teach elementary kids",
+      "id": "7034",
+      "title": "",
+      "description": "teageag",
+      "salary": "15",
       "jobLevel": "junior",
-      "salary": "15/hour",
-      "employer": "Kumon",
+      "jobType": "",
+      "employer": "ChickFila",
       "location": "clarksville, md",
-      "jobType": "part-time",
-      "status": "new"
+      "status": "approved"
+    },
+    {
+      "id": "3537",
+      "title": "Store manager I",
+      "description": "teageag",
+      "salary": "15",
+      "jobLevel": "junior",
+      "jobType": "",
+      "employer": "ChickFila",
+      "location": "clarksville, md",
+      "status": "New"
+    },
+    {
+      "id": "013b",
+      "title": "Store manager II",
+      "description": "teageag",
+      "salary": "15",
+      "jobLevel": "junior",
+      "jobType": "",
+      "employer": "ChickFila",
+      "location": "clarksville, md",
+      "status": "approved"
+    },
+    {
+      "id": "cfea",
+      "title": "iStore manager III",
+      "description": "teageag",
+      "salary": "15",
+      "jobLevel": "junior",
+      "jobType": "",
+      "employer": "ChickFila",
+      "location": "clarksville, md",
+      "status": "deleted"
     }
   ],
   "users": [
@@ -73,7 +106,8 @@
       "id": "f41c",
       "username": "emp",
       "email": "emp@test",
-      "password": "emp"
+      "password": "emp",
+      "role": "employer"
     }
   ],
   "applications": [

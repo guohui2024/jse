@@ -48,9 +48,9 @@ export class LoginComponent {
           if (user.role === 'employer') {
             this.router.navigate(['/jobposting']);
           } else if (user.role === 'admin') {
-            this.router.navigate(['/jobmanagement']);
+              this.router.navigate(['/jobmanagement']);
           } else {
-            this.router.navigate(['/']); // or any other page for other roles
+              this.router.navigate(['/']); // or any other page for other roles
           }
         } else {
           this.errorFlag = true; // Set error flag if login failed

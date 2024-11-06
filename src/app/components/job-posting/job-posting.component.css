@@ -1,107 +1,130 @@
+.job-posting-page {
+  display: flex; /* Use flexbox to layout sidebar and job form */
+  padding: 1rem;
+  background-image: url('/assets/resource/rh4.jpg');
+}
+
+.navigation {
+  width: 200px; /* Fixed width for the sidebar */
+  background-image: url('/assets/resource/rh2.jpg'), url('/assets/resource/rh1.jpg'), 
+                    url('/assets/resource/rh3.jpg'), url('/assets/resource/rh4.jpg');
+  background-size: cover; /* Ensure background images cover the sidebar */
+  background-position: center; /* Center the background images */
+  background-repeat: no-repeat; /* Prevent background images from repeating */
+  padding: 20px; /* Add padding around the sidebar content */
+  display: flex; /* Use flexbox for vertical alignment */
+  flex-direction: column; /* Stack items vertically */
+  justify-content: flex-start; /* Start from the top */
+  gap: 15px; /* Space between navigation items */
+}
+  
+.navigation .btn {
+  padding: 10px 20px; /* Padding for buttons */
+  width: 100%; /* Make buttons take full width */
+  text-align: center; /* Center the button text */
+  background-color: #007bff; /* Bootstrap primary color */
+  color: white; /* Button text color */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Change cursor on hover */
+}
+
 .job-posting-container {
-  width: 80%;
-  margin: auto; /* Center the container */
-  padding: 20px;
-  background-color: #f8f9fa;
+  flex-grow: 1; /* Allow the form to take remaining space */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 2rem;
+  background-color: #ffffff; /* White background for form container */
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 80%; /* Ensure it doesn't get too wide */
+  width: 100%; /* Take up full width within parent container */
+  margin: 0 auto; /* Center the container */
 }
 
-.job-list-link {
-  display: block; /* Make it a block element */
-  margin-bottom: 20px; /* Add space below */
-  font-size: 16px; /* Increase font size */
-  color: #007bff; /* Link color */
-  text-decoration: none; /* Remove underline */
+@media (max-width: 1920px) {
+  .job-posting-container {
+    width: 90%; /* Take up more space on tablets and smaller screens */
+  }
 }
 
-.job-list-link:hover {
-  text-decoration: underline; /* Add underline on hover */
+@media (max-width: 1024px) {
+  .job-posting-container {
+    width: 90%; /* Take up more space on tablets and smaller screens */
+  }
 }
 
-.custom-dropdown {
-  position: relative;
-  width: 100%;
-  cursor: pointer;
-  border: 1px solid #ddd;
-  padding: 12px;
-  border-radius: 4px;
-  font-size: 16px;
+@media (max-width: 768px) {
+  .job-posting-container {
+    width: 95%; /* Allow it to take almost full width on smaller devices */
+  }
 }
 
-.selected-employer {
+
+.job-posting-form {
+  grid-template-columns:11fr 1fr; /* Two columns for form fields */
+  gap: 50px; /* Space between form fields */
+}
+
+.form-group {
   display: flex;
-  align-items: center;
+  flex-direction: column;
 }
 
-.employer-logo {
-  width: 20px;
-  height: 20px;
-  margin-right: 8px;
-}
-
-.dropdown-options {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  max-height: 150px;
-  overflow-y: auto;
-  z-index: 1;
-}
-
-.dropdown-option {
-  padding: 10px;
-  display: flex;
-  align-items: center;
-}
-
-.dropdown-option:hover {
-  background-color: #f1f1f1;
-}
-
-
-.job-posting-form .form-group {
-  margin-bottom: 20px;
-}
-
-.job-posting-form label {
-  display: block;
+.form-group label {
+  margin-bottom: 5px;
   font-weight: bold;
-  margin-bottom: 8px;
 }
 
-.job-posting-form input,
-.job-posting-form textarea {
-  width: 100%;
-  padding: 12px;
-  font-size: 16px;
-  border: 1px solid #ddd;
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
   border-radius: 4px;
+  font-size: 16px;
 }
 
-.job-posting-form textarea {
-  height: 100px; /* Increase job description field height */
-  resize: vertical;
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #007bff;
 }
 
 .submit-button {
-  text-align: center;
+  grid-column: span 2; /* Make the submit button span across both columns */
+  display: flex;
+  margin-top: 5%;
+  justify-content: flex-end;
 }
 
 .submit-button button {
-  padding: 12px 24px;
-  font-size: 16px;
-  background-color: #007bff;
-  color: #fff;
+  padding: 10px 20px;
+  background-color: #007bff; /* Button color */
+  color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-size: 16px;
 }
 
 .submit-button button:hover {
-  background-color: #0056b3;
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.sidebar .btn {
+  padding: 10px 20px; /* Padding for buttons */
+  width: 100%; /* Make buttons take full width */
+  text-align: center; /* Center the button text */
+  background-color: #007bff; /* Bootstrap primary color */
+  color: white; /* Button text color */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Change cursor on hover */
+}
+
+.sidebar .btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
 }
