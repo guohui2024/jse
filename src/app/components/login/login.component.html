@@ -20,7 +20,7 @@
     <div class="warning">
       <label *ngIf="errorFlag">username or password is wrong</label>
     </div>
-    <p-button label="SIGN IN" styleClass="w-full; border-radius: 4px;" [disabled]="loginForm.invalid" type="submit"></p-button>
+    <p-button label="SIGN IN" styleClass="w-full;" class="btn" [disabled]="loginForm.invalid" type="submit"></p-button>
     <div class="mt-2">Not a user? <a routerLink="/register">Register</a></div>
   </p-card>
 </form>

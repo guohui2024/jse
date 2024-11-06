@@ -1,7 +1,13 @@
 .main-content-section {
-  width: 100%; /* Adjust width if needed */
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  max-height: calc(100vh - 160px); /* Ensure that the main content section doesn't go above the header or footer */
+  overflow-y: auto; /* Allow scrolling if content overflows */
+  
   margin: 0 auto;
-  padding: 10px;
   background-color: #f9f9f9; /* Light grey as a fallback */
   
   /* Optional styling */
