@@ -1,0 +1,43 @@
+<div class="add-employer">
+    <h2>Add Employer</h2>
+    
+    <!-- Employer Form (Add New Employer) -->
+    <div class="employer-card">
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="employerName">Employer Name</label>
+          <input type="text" id="employerName" [(ngModel)]="employer.name" name="name" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="employerLocation">Location</label>
+          <input type="text" id="employerLocation" [(ngModel)]="employer.location" name="location" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="employerLogo">Employer Logo</label>
+          <input type="file" id="employerLogo" (change)="onLogoChange($event)" required>
+          <div *ngIf="logoPreview">
+            <h4>Logo Preview:</h4>
+            <img [src]="logoPreview" alt="Logo Preview" width="100" />
+          </div>
+        </div>
+  
+        <button type="submit" class="btn-save">Save Employer</button>
+      </form>
+    </div>
+  
+    <!-- Current Employers Grid -->
+    <div class="employer-grid">
+      <h2>Current Employers</h2>
+      <div class="grid-container">
+        <div class="grid-item" *ngFor="let employer of employers">
+          <img [src]="'/assets/resource/' + employer.logo" alt="Logo" class="employer-logo">
+          <h4>{{ employer.name }}</h4>
+          <p>{{ employer.location }}</p>
+          <button class="btn-delete" (click)="deleteEmployer(employer.id)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -17,27 +17,32 @@ export class AppComponent  implements OnInit{
   @Input()
   public isUserLoggedIn: boolean = false;
 
-  user?: User | null;
+  user: any; //store applicant details
 
   constructor(private router: Router, private userService:UserService){ 
     //console.log('test!');
   }
 
-  ngOnInit(): void{ }
+  currentRole: string="user";
 
-  onHome(){    
-    console.log('home page');
-    this.router.navigate(['home']);
+  ngOnInit(): void {
+    // Retrieve the user's role from localStorage or any other auth service
+   const storedUser = localStorage.getItem('user');
+   if (storedUser) {
+      const user = JSON.parse(storedUser);
+      console.log('Current user is ' + user);
+      this.currentRole = user.role; // Default to 'user'
+      console.log('Current user role is ' + this.currentRole);
+   }
+  }
+
+  isUserRole(role: string): boolean {
+    return this.currentRole === role;
   }
 
   onLogin(){    
     console.log('Login page');
     this.router.navigate(['login']);
-  }
-
-  onCourse(){
-    console.log('course page')
-    this.router.navigate(['course']);
   }
 
   logout() {

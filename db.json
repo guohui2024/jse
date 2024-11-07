@@ -48,7 +48,7 @@
       "jobType": "",
       "employer": "ChickFila",
       "location": "clarksville, md",
-      "status": "New"
+      "status": "deleted"
     },
     {
       "id": "013b",
@@ -71,6 +71,28 @@
       "employer": "ChickFila",
       "location": "clarksville, md",
       "status": "deleted"
+    },
+    {
+      "id": "0865",
+      "title": "casher",
+      "description": "casher",
+      "salary": "15",
+      "jobLevel": "senior",
+      "jobType": "part-time",
+      "employer": "Kumon",
+      "location": "clarksville, md",
+      "status": "approved"
+    },
+    {
+      "id": "1baa",
+      "title": "high schooler internship",
+      "description": "high schooler internship",
+      "salary": "15",
+      "jobLevel": "junior",
+      "jobType": "part-time",
+      "employer": "FBI",
+      "location": "greenbelt,md",
+      "status": "New"
     }
   ],
   "users": [
@@ -86,7 +108,7 @@
       "username": "hello",
       "email": "hello@hello",
       "password": "hello",
-      "role": "user"
+      "role": "employer"
     },
     {
       "id": "3cb7",
@@ -137,23 +159,41 @@
       "school": "",
       "grade": "10",
       "jobId": "1"
+    },
+    {
+      "id": "5269",
+      "name": "Brandon",
+      "email": "admin@hcpssas.edu",
+      "phone": "1233453456",
+      "school": "rhhs",
+      "grade": "10",
+      "jobId": "1"
     }
   ],
   "employers": [
     {
       "id": "1",
       "name": "FBI",
-      "logo": "./assets/resource/fbi.jpg"
+      "location": "Greenbelt, MD",
+      "logo": "fbi.jpg"
     },
     {
       "id": "2",
       "name": "Kumon",
-      "logo": "./assets/resource/Kumon-Logo.png"
+      "location": "Clarksville, MD",
+      "logo": "Kumon-Logo.png"
     },
     {
       "id": "3",
       "name": "ChickFila",
-      "logo": "./assets/resource/chickfila.jpg"
+      "location": "Clarksville, MD",
+      "logo": "chickfila.jpg"
+    },
+    {
+      "id": "240e",
+      "name": "five guys",
+      "location": "clarksville, md",
+      "logo": "fiveguys.png"
     }
   ]
 }

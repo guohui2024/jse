@@ -1,0 +1,86 @@
+/* Full height sidebar on the left */
+.navigation {
+    width: 250px; /* Set width of the sidebar */
+    height: 100vh; /* Make it the full height of the screen */
+    background-image: url('/assets/resource/rh2.jpg'), url('/assets/resource/rh1.jpg'), 
+                      url('/assets/resource/rh3.jpg'), url('/assets/resource/rh4.jpg');
+    background-size: cover; /* Ensure background images cover the sidebar */
+    background-position: center; /* Center the background images */
+    background-repeat: no-repeat; /* Prevent background images from repeating */
+    position: fixed; /* Fix the sidebar on the left */
+    top: 0; /* Position at the top of the screen */
+    left: 0;
+    padding: 20px; /* Add padding around the sidebar content */
+    display: flex; /* Use flexbox for vertical alignment */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: flex-start; /* Start from the top */
+    gap: 15px; /* Space between navigation items */
+    z-index: 1; /* Ensure sidebar stays on top of other content */
+}
+
+.navigation .btn {
+    padding: 10px 20px; /* Padding for buttons */
+    width: 100%; /* Make buttons take full width */
+    text-align: center; /* Center the button text */
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white; /* Button text color */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Change cursor on hover */
+}
+
+.navigation .btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Push links to the bottom */
+.sidebar-links {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Spacing between links */
+    text-align: center;
+    vertical-align: center;
+}
+
+.active {
+    font-weight: bold;
+    background-color: #0056b3;
+    color: white;
+}
+
+/* Main content container */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin-left: 240px; /* Offset content to the right of the sidebar */
+}
+
+.content-container {
+    margin: 20px; /* Add padding to the content */
+    align-self:center;
+    width: calc(100% - 270px); /* Adjust content width (100% minus sidebar width) */
+}
+
+app-header {
+    margin-left: 1rem; /* Offset header to the right of the sidebar */
+}
+
+app-footer {
+    margin-left: 1rem; /* Offset footer to the right of the sidebar */
+}
+
+/* Responsive adjustments (if needed for mobile) */
+@media (max-width: 768px) {
+    .navigation {
+        width: 200px; /* Adjust sidebar width for smaller screens */
+    }
+
+    .main-container {
+        margin-left: 200px; /* Adjust content to fit smaller sidebar */
+    }
+
+    .content-container {
+        width: calc(100% - 220px); /* Adjust content width for smaller screen */
+    }
+}

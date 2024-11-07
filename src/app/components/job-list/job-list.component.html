@@ -1,29 +1,14 @@
-  <!-- Search Section with Background Images -->
-  <div class="search-section">
-    <div class="overlay">
-      <label class="search-label">Find your job</label>
-      <div class="search-bar-container">
-        <input type="text" id="job-search" class="form-control search-input"
-               placeholder="job title, employer, location, salary"
-               [(ngModel)]="searchKeyword" (input)="filterJobs()" />
-      </div>
-    </div>
-  </div>
-
+  
 <div class="container mt-4">
     <div class="content-container d-flex" 
         style="width: 90%; background-color: #f5f5f5; padding: 1rem; border-radius: 8px;">
-        <!-- Show link only if the user is an admin -->
-        <div *ngIf="isAdmin" style="text-align:center; margin-bottom: 20px;">
-          <a routerLink="/jobmanagement" class="job-list-link btn btn-sm custom-small-btn">Go to Job Management</a>
-      </div>      
       
       <!-- Job List Section (70%) -->
       <div class="job-list-section" style="width: 70%; background-color: #f5f5f5; padding: 1rem; border-radius: 8px;">
         <div *ngFor="let job of filteredJobs" class="job-card mb-3">
           <div class="card shadow-sm p-3">
             <!-- Job Title -->
-            <h5 class="job-title text-primary">{{ job.title }} || {{ job.id }}</h5>
+            <h5 class="job-title text-primary">{{ job.title }}</h5>
             <!-- Job Description -->
             <p class="job-description mb-2">{{ job.description }}</p>
             <div class="job-info-meta d-flex">

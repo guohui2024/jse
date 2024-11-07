@@ -30,6 +30,8 @@ import { ConfirmationModalComponent } from './components/confirmation-modal/conf
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { JobManagementComponent } from './components/job-management/job-management.component';
 import { JobPostingComponent } from './components/job-posting/job-posting.component';
+import { UserRoleAssignmentComponent } from './components/user-role-assignment/user-role-assignment.component';
+import { AddEmployerComponent } from './components/add-employer/add-employer.component';
 
 @NgModule({
   declarations: [
@@ -43,8 +45,12 @@ import { JobPostingComponent } from './components/job-posting/job-posting.compon
     JobListComponent,
     JobApplyComponent,
     ConfirmationModalComponent,
+    AddEmployerComponent,
+    UserRoleAssignmentComponent,
     JobManagementComponent,
-    JobPostingComponent
+    JobPostingComponent,
+    UserRoleAssignmentComponent,
+    AddEmployerComponent
     //NgModule // Import NgbModule instead of NgbModalModule
   ],
   imports: [

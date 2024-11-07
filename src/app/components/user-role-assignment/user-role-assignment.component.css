@@ -1,0 +1,104 @@
+/* user-role-assignment.component.css */
+.user-role-assignment {
+    padding: 1rem;
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Flex container for the user list */
+  .user-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Automatically adjust columns based on screen size */
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .user-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1rem;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-card p {
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  label {
+    font-size: 14px;
+  }
+  
+  select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .btn-save {
+    align-self: flex-end;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%;
+    max-width: 120px; /* Limit the button width */
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-save:hover {
+    background-color: #0056b3;
+  }
+  
+  .confirmation-message {
+    margin-top: 1rem;
+    color: green;
+    font-size: 16px;
+  }
+  
+  /* Responsive design tweaks for smaller screens */
+  @media screen and (max-width: 600px) {
+    .user-role-assignment {
+      padding: 1rem 0.5rem;
+    }
+  
+    .user-card {
+      padding: 0.8rem;
+    }
+  
+    .btn-save {
+      width: 100%;
+    }
+  
+    label, select {
+      font-size: 12px;
+    }
+  
+    .user-card p {
+      font-size: 12px;
+    }
+  }
+  
+  @media screen and (max-width: 400px) {
+    .user-role-assignment h2 {
+      font-size: 18px; /* Smaller header on small screens */
+    }
+  
+    .user-card {
+      padding: 0.6rem;
+    }
+  
+    .btn-save {
+      font-size: 12px; /* Smaller button text on small screens */
+    }
+  }
+  

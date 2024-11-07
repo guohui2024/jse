@@ -1,11 +1,12 @@
-    <nav> <!-- Navigation links --> </nav>
-    
-    <div class="title">
-            <span style="position:relative; top:10px; padding: 10%">River Hill High School</span>
+<nav> <!-- Navigation links --> </nav>
 
-            <button *ngIf="!isLoggedIn" class="btn btn-primary login-button" (click)="navigateToLogin()" > Login</button>
-            <button *ngIf="isLoggedIn"  class="btn btn-secondary logout-button" (click)="logOut()" >
-        Logout
-    </button>
-            
+<div class="header-container">
+    <div class="title">
+        <img src="/assets/resource/rhhs-large.png" alt="School Logo" class="school-logo">
+        <span class="school-name">River Hill High School</span>
     </div>
+    <div class="auth-buttons">
+        <button *ngIf="!isLoggedIn" class="btn btn-primary login-button" (click)="navigateToLogin()">Login</button>
+        <button *ngIf="isLoggedIn" class="btn btn-secondary logout-button" (click)="logOut()">Logout</button>
+    </div>
+</div>

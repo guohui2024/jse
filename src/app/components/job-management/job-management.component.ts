@@ -9,6 +9,7 @@ import { JobService } from 'src/app/services/job.service';
 export class JobManagementComponent implements OnInit {
   jobs: any[] = []; // Array to hold job data
   confirmationMessage: string | null = null;
+  showPopup: boolean = false; // New property for pop-up visibility
 
   constructor(private jobService: JobService) {}
 
@@ -24,15 +25,9 @@ export class JobManagementComponent implements OnInit {
 
   updateJobStatus(job: any): void {
     this.jobService.updateJob(job.id, job).subscribe(
-      (      response: any) => {
+      response => {
         console.log('Job status updated:', response);
-         // Show the confirmation message on successful save
-         this.showConfirmationMessage("Job status updated successfully!");
-
-        // Optionally, hide the message after a few seconds
-        setTimeout(() => {
-          this.confirmationMessage = null;
-        }, 3000); // Hide after 3 seconds
+        this.showConfirmationPopup("Job status updated successfully!");
       },
       error => {
         console.error("Error updating job status:", error);
@@ -40,8 +35,12 @@ export class JobManagementComponent implements OnInit {
     );
   }
 
-   // Method to show confirmation message
-   private showConfirmationMessage(message: string) {
+  // Show confirmation pop-up with message
+  private showConfirmationPopup(message: string) {
     this.confirmationMessage = message;
+    this.showPopup = true;
+    setTimeout(() => {
+      this.showPopup = false; // Hide after 3 seconds
+    }, 3000);
   }
 }

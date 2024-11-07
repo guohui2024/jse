@@ -1,11 +1,5 @@
 <div class="job-posting-page">
-  <!-- Sidebar Navigation -->
-  <div class="navigation">
-    <a routerLink="/joblist" class="btn">Back to Job List</a>
-    <a routerLink="/employer-jobs" class="btn">View My Listings</a>
-    <a routerLink="/applications" class="btn">View Applications</a>
-  </div>
-
+  
   <!-- Job Posting Form -->
   <div class="job-posting-container">   
     <form [formGroup]="jobPostingForm" (ngSubmit)="openConfirmation()" class="job-posting-form">

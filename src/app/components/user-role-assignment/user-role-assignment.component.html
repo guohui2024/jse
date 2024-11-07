@@ -1,0 +1,25 @@
+<!-- user-role-assignment.component.html -->
+<div class="user-role-assignment">
+    <h2>Assign Roles to Users</h2>
+    <div class="user-list">
+      <div *ngFor="let user of users" class="user-card">
+        <p><strong>Name:</strong> {{ user.name }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+  
+        <label for="role">Role:</label>
+        <select [(ngModel)]="user.role">
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+          <option value="employer">Employer</option>
+        </select>
+  
+        <button (click)="saveUserRole(user)" class="btn-save">Save</button>
+      </div>
+    </div>
+  
+    <!-- Confirmation message for role updates -->
+    <div *ngIf="confirmationMessage" class="confirmation-message">
+      {{ confirmationMessage }}
+    </div>
+  </div>
+  

@@ -18,6 +18,7 @@ export class UserService {
   userID: any;
   message!: string;
   isDisplayed!: boolean;
+  private userUrl = 'http://localhost:3000/users';
 
   private userSubject: BehaviorSubject<User|null>;
   public user: Observable<User | null>;
@@ -68,6 +69,16 @@ export class UserService {
 
   getUserList() {
     return this.httpClient.get<User[]>(`${environment.apiUrl}/users`);
+  }
+
+  // Fetch users
+  getUsers(): Observable<any> {
+    return this.httpClient.get<any>(this.userUrl);
+  }
+
+  // Update user role
+  updateUserRole(userId: number, role: string): Observable<any> {
+    return this.httpClient.patch(`${this.userUrl}/${userId}`, { role });
   }
 
   update(id: number, params: any) {

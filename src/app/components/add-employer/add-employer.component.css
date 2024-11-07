@@ -1,0 +1,126 @@
+.add-employer {
+    padding: 1rem;
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  label {
+    display: block;
+    font-size: 14px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .employer-card, .grid-item {
+    background-color: #fff;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .employer-card {
+    width: 50%;                  /* Set the width of the card */
+    margin: 0 auto;              /* Center the card horizontally */
+    padding: 1rem;               /* Optional: Adjust padding as needed */
+    text-align: center;          /* Center text inside the card */
+    display: flex;               /* Use flexbox */
+    flex-direction: column;      /* Stack items vertically */
+    justify-content: space-between; /* Space items so button is at the bottom */
+    height: 100%;                /* Ensure it takes full height of the parent */
+    border: 1px solid #ccc;      /* Optional: Border for the card */
+    border-radius: 8px;          /* Optional: Rounded corners */
+  }
+  
+  .btn-delete {
+    background-color: #436c33;   /* Green background for the button */
+    color: white;                /* White text color */
+    padding: 0.5rem;             /* Padding inside the button */
+    border: none;                /* Remove border */
+    border-radius: 4px;          /* Rounded corners for button */
+    cursor: pointer;             /* Pointer cursor on hover */
+    margin-top: auto;            /* Push the button to the bottom */
+    margin-bottom: 1rem;         /* Optional: Add space below the button */
+  }
+  
+  
+  .btn-delete:hover {
+    background-color: #63ad46;
+  }
+  
+  .employer-logo {
+        width: 80px;               /* Set the width of the icon */
+        height: 80px;              /* Set the height of the icon */
+        object-fit: cover;          /* Make the image cover the area without distortion */
+        border-radius: 50%;         /* Optional: Make the icon circular */
+        margin: 0 auto;             /* Center the icon horizontally */
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .add-employer {
+      padding: 1rem;
+    }
+  
+    .form-group input,
+    button {
+      font-size: 14px;
+    }
+  
+    .grid-item {
+      padding: 0.5rem;
+    }
+  
+    .grid-container {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .grid-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  

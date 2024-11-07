@@ -1,8 +1,4 @@
 <div class="job-management">
-  <div class="navigation">
-    <button routerLink="/job-list" class="btn">Go to Job List</button>
-    <button routerLink="/add-employer" class="btn">Add Employer</button>
-  </div>
   <div class="job-grid">
     <div class="job-card" *ngFor="let job of jobs">
       <h3>{{ job.title }}</h3>
@@ -18,7 +14,14 @@
         <option value="approved">Approve</option>
         <option value="deleted">Delete</option>
       </select>
-      <button (click)="updateJobStatus(job)" class='btn btn-link' style="align-self: flex-end;">Save</button>
+      <button (click)="updateJobStatus(job)" class="btn btn-primary save-button">Save</button>
+    </div>
+  </div>
+
+  <!-- Pop-up Confirmation Message -->
+  <div class="popup" *ngIf="showPopup">
+    <div class="popup-content">
+      <p>{{ confirmationMessage }}</p>
     </div>
   </div>
 </div>
