@@ -5,6 +5,8 @@
     align-items: center;
     padding: 3% 3%;
     background-color: rgb(170, 221, 241); /* Light grey background */
+    border-top: 2px solid #e1f184;
+    border-bottom: 2px solid #e1f184;
 }
 
 .title {

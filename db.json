@@ -25,54 +25,6 @@
       "status": "approved"
     },
     {
-      "status": "deleted",
-      "id": "b8a7"
-    },
-    {
-      "id": "7034",
-      "title": "",
-      "description": "teageag",
-      "salary": "15",
-      "jobLevel": "junior",
-      "jobType": "",
-      "employer": "ChickFila",
-      "location": "clarksville, md",
-      "status": "approved"
-    },
-    {
-      "id": "3537",
-      "title": "Store manager I",
-      "description": "teageag",
-      "salary": "15",
-      "jobLevel": "junior",
-      "jobType": "",
-      "employer": "ChickFila",
-      "location": "clarksville, md",
-      "status": "deleted"
-    },
-    {
-      "id": "013b",
-      "title": "Store manager II",
-      "description": "teageag",
-      "salary": "15",
-      "jobLevel": "junior",
-      "jobType": "",
-      "employer": "ChickFila",
-      "location": "clarksville, md",
-      "status": "approved"
-    },
-    {
-      "id": "cfea",
-      "title": "iStore manager III",
-      "description": "teageag",
-      "salary": "15",
-      "jobLevel": "junior",
-      "jobType": "",
-      "employer": "ChickFila",
-      "location": "clarksville, md",
-      "status": "deleted"
-    },
-    {
       "id": "0865",
       "title": "casher",
       "description": "casher",

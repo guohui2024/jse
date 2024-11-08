@@ -71,4 +71,11 @@ export class JobService {
   saveJob(jobData: any): Observable<any> {
     return this.http.post<any>(`${this.jobUrl}`, jobData);
   }
+
+  // Method to delete a job by ID
+  deleteJob(jobId: number): Observable<void> {
+    const url = `${this.jobUrl}/${jobId}`;
+    return this.http.delete<void>(url);
+  }
+
 }

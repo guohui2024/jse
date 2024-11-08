@@ -1,27 +1,30 @@
 <div class="container">
-<form [formGroup]="loginForm" (ngSubmit)="loginUser()">
-  <p-card header="Login" [style]="{ border: '2px solid skyblue',  width: '460px' }">
-    <div class="field">
-      <label for="username">Username</label>
-      <input type="text" id="username" pInputText formControlName="username" class="w-full" name="username" placeholder="Type your username"/>
-      <small *ngIf="username.invalid && (username.dirty || username.touched)" class="block p-error">
-        <div *ngIf="username.errors?.['minLength']">Username must be at least 3 characters long.</div>
-        <div *ngIf="username.errors?.['maxLength']">Username cannot be more than 20 characters long</div>
-        <div *ngIf="username.errors?.['pattern']">Username can only contain alphanumeric characters</div>
-      </small>
-    </div>
-    <div class="field">
-      <label for="password">Password</label>
-      <input type="password" id="password" pInputText formControlName="password" class="w-full" name="password" placeholder="Type your password"/>
-      <small *ngIf="password.invalid && (password.dirty || password.touched)" class="block p-error">
-        <div *ngIf="password.errors?.['required']">Password is required.</div>
-      </small>
-    </div>
-    <div class="warning">
-      <label *ngIf="errorFlag">username or password is wrong</label>
-    </div>
-    <p-button label="SIGN IN" styleClass="w-full;" class="btn" [disabled]="loginForm.invalid" type="submit"></p-button>
-    <div class="mt-2">Not a user? <a routerLink="/register">Register</a></div>
-  </p-card>
-</form>
+  <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+    <p-card header="Login" [style]="{ border: '2px solid skyblue' }">
+      <div class="field">
+        <label for="username">Username</label>
+        <input type="text" id="username" pInputText formControlName="username" class="w-full" name="username" placeholder="Type your username"/>
+        <small *ngIf="username.invalid && (username.dirty || username.touched)" class="block p-error">
+          <div *ngIf="username.errors?.['minLength']">Username must be at least 3 characters long.</div>
+          <div *ngIf="username.errors?.['maxLength']">Username cannot be more than 20 characters long</div>
+          <div *ngIf="username.errors?.['pattern']">Username can only contain alphanumeric characters</div>
+        </small>
+      </div>
+
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" id="password" pInputText formControlName="password" class="w-full" name="password" placeholder="Type your password"/>
+        <small *ngIf="password.invalid && (password.dirty || password.touched)" class="block p-error">
+          <div *ngIf="password.errors?.['required']">Password is required.</div>
+        </small>
+      </div>
+
+      <div class="warning">
+        <label *ngIf="errorFlag">Username or password is incorrect</label>
+      </div>
+
+      <p-button label="SIGN IN" class="btn" [disabled]="loginForm.invalid" type="submit"></p-button>
+      <div class="mt-2">Not a user? <a routerLink="/register">Register</a></div>
+    </p-card>
+  </form>
 </div>

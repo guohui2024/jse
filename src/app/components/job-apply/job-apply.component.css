@@ -19,6 +19,10 @@
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background-image:  url('/assets/resource/rh4.jpg');
+  background-size: cover; /* Ensure background images cover the sidebar */
+  background-position: center; /* Center the background images */
+  background-repeat: no-repeat; /* Prevent background images from repeating */
 }
 
 /* Form Styling */

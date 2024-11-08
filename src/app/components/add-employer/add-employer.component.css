@@ -92,12 +92,13 @@
         border-radius: 50%;         /* Optional: Make the icon circular */
         margin: 0 auto;             /* Center the icon horizontally */
   }
-  
+
   .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1rem;
   }
+  
   
   @media (max-width: 768px) {
     .add-employer {

@@ -1,14 +1,57 @@
-.warning{
-    color: rgb(245, 56, 56);
-    font-size: 16px;
-    margin-bottom: 2%;
-  }
-
-.container{
-  margin-top: 10%;
-  margin-bottom:10%;
+/* General Container Styling */
+.container {
+  margin: 5% auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 460px; /* Ensures max width on larger screens */
 }
 
-.btn{
+/* Card and Button Styling */
+p-card {
+  width: 100%; /* Makes the card full width of container */
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.btn {
   border-radius: 4px;
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.warning {
+  color: rgb(245, 56, 56);
+  font-size: 16px;
+  margin-bottom: 2%;
+}
+
+.field label {
+  font-weight: bold;
+}
+
+/* Input Fields Styling */
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .container {
+    margin: 10% auto;
+    width: 90%;
+    padding: 1rem;
+  }
 }

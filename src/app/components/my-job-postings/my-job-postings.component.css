@@ -1,0 +1,104 @@
+/* Container for the grid */
+.job-postings-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Automatically adjusts number of columns */
+    gap: 20px; /* Spacing between grid items */
+    margin: 20px;
+  }
+  
+  /* Individual job posting */
+  .job-posting {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* This pushes the button to the bottom */
+    height: 100%; /* Ensures the card stretches to full height */
+  }
+  
+  /* Employer Info Section */
+  .employer-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px; /* Adds space between the employer info and job details */
+  }
+  
+  .employer-logo {
+    width: 40px; /* Adjust the logo size */
+    height: 40px; /* Maintain square aspect ratio */
+    border-radius: 50%; /* Circular logo */
+    margin-right: 10px; /* Space between logo and name */
+  }
+  
+  .employer-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Job posting title and details */
+  .job-posting h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .job-posting p {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+  
+  .job-posting button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px; /* Adds space between the content and the button */
+  }
+  
+  .job-posting button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Media Queries for Responsiveness */
+  
+  /* Tablet devices */
+  @media (max-width: 768px) {
+    .job-postings-container {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+    }
+  
+    .job-posting {
+      padding: 15px;
+    }
+  }
+  
+  /* Mobile devices */
+  @media (max-width: 480px) {
+    .job-postings-container {
+      grid-template-columns: 1fr; /* Single column for smaller screens */
+      gap: 10px;
+    }
+  
+    .job-posting {
+      padding: 10px;
+    }
+  
+    .job-posting h4 {
+      font-size: 16px;
+    }
+  
+    .job-posting p {
+      font-size: 12px;
+    }
+  
+    .job-posting button {
+      padding: 6px 12px;
+    }
+  }
+  

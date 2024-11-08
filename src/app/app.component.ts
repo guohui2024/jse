@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { User } from './models/user';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { UserService } from './services/user.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class AppComponent  implements OnInit{
 
   
   @Input()
-  public title: string = "GPA Calculator";
+  public title: string = "JOB SEARCHING ENGINE";
   @Input()
   public isUserLoggedIn: boolean = false;
 
@@ -21,11 +21,13 @@ export class AppComponent  implements OnInit{
 
   constructor(private router: Router, private userService:UserService){ 
     //console.log('test!');
+    
   }
 
   currentRole: string="user";
 
   ngOnInit(): void {
+    
     // Retrieve the user's role from localStorage or any other auth service
    const storedUser = localStorage.getItem('user');
    if (storedUser) {

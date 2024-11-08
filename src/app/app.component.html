@@ -1,35 +1,24 @@
-<div class="navigation">
-  <div class="sidebar-links">
-      <button routerLink="/job-list" routerLinkActive="active" class="btn">Job List</button>
-      <button routerLink="/job-management" routerLinkActive="active" class="btn">Job Management</button>
-      <button routerLink="/job-posting" routerLinkActive="active" class="btn">Job Posting</button>
-      <button routerLink="/add-employer" routerLinkActive="active" class="btn">Add Employer</button>
-      <button *ngIf="isUserRole('regular')" routerLink="/my-application" routerLinkActive="active" class="btn">My Application</button>
-      <button *ngIf="isUserRole('admin')" routerLink="/job-list" routerLinkActive="active" class="btn">Job List</button>
-      <button *ngIf="isUserRole('admin')" routerLink="/add-employer" routerLinkActive="active" class="btn">Add Employer</button>
-      <button *ngIf="isUserRole('employer')" routerLink="/my-job-posting" routerLinkActive="active" class="btn">My Job Posting</button>  
-    </div>
-</div>
+<div class="main-container">
+  <app-header></app-header> <!-- Your header component -->
 
-  <!-- Main content container -->
-  <div class="main-container">
-    <app-header></app-header> <!-- Your header component -->
-    
+  <!-- Wrapper to organize sidebar and content side by side -->
+  <div class="content-wrapper">
+    <!-- Sidebar Navigation -->
     <div class="navigation">
       <div class="sidebar-links">
-          <button routerLink="/job-list" routerLinkActive="active" class="btn">Job List</button>
-          <button *ngIf="isUserRole('admin')"  routerLink="/jobmanagement" routerLinkActive="active" class="btn">Job Management</button>
-          <button *ngIf="isUserRole('admin')" routerLink="/userroleassignment" routerLinkActive="active" class="btn">Add User Role</button>
-          <button *ngIf="isUserRole('admin')" routerLink="/addemployer" routerLinkActive="active" class="btn">Add Employer</button>
-          <button *ngIf="isUserRole('employer')" routerLink="/jobposting" routerLinkActive="active" class="btn">Job Posting</button>    
-          <button *ngIf="isUserRole('employer')" routerLink="/my-job-posting" routerLinkActive="active" class="btn">My Job Posting</button>  
-        </div>
+        <button routerLink="/job-list" routerLinkActive="active" class="btn">Job List</button>
+        <button *ngIf="isUserRole('admin')" routerLink="/jobmanagement" routerLinkActive="active" class="btn">Job Management</button>
+        <button *ngIf="isUserRole('admin')" routerLink="/userroleassignment" routerLinkActive="active" class="btn">Add User Role</button>
+        <button *ngIf="isUserRole('admin')" routerLink="/addemployer" routerLinkActive="active" class="btn">Add Employer</button>
+        <button *ngIf="isUserRole('employer')" routerLink="/jobposting" routerLinkActive="active" class="btn">Job Posting</button>
+      </div>
     </div>
-    
+
+    <!-- Main Content Area -->
     <div class="content-container">
       <router-outlet></router-outlet> <!-- Main content is rendered here -->
     </div>
-    
-    <app-footer></app-footer> <!-- Your footer component -->
   </div>
-  
+
+  <app-footer></app-footer> <!-- Your footer component -->
+</div>

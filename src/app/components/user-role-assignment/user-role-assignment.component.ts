@@ -36,7 +36,7 @@ export class UserRoleAssignmentComponent implements OnInit {
           this.confirmationMessage = null;
         }, 3000);
       },
-      error => {
+      (      error: any) => {
         console.error("Error updating user role:", error);
       }
     );

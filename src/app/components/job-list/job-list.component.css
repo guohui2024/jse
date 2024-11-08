@@ -2,14 +2,16 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: 20px;
+  padding:2rem;
   box-sizing: border-box;
   margin: 0 auto;
-  background-color: #f9f9f9; /* Light grey as a fallback */
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-image:  url('/assets/resource/rh1.jpg'), 
+                     url('/assets/resource/rh3.jpg'), url('/assets/resource/rh4.jpg');
+  background-size: cover; /* Ensure background images cover the sidebar */
+  background-position: center; /* Center the background images */
 }
-
 
 .job-list-section, .filter-section {
   width: 100%; /* Make each section take full width */
@@ -17,13 +19,97 @@
 }
 
 .filter-section {
-  width: 30%;
+  width: 100%;
+  max-width: 400px;
   padding: 20px;
   background-color: #f8f9fa;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow-y: auto; /* Allow scrolling if content overflows */
-  max-height: calc(100vh - 120px); /* Allows scrolling if content overflows */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.filter-section h4 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.filter-group,
+.filter-category {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Increased gap between filters for better spacing */
+}
+
+.filter-group label,
+.filter-category label {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.filter-group input,
+.filter-category input {
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+
+.filter-group input:focus,
+.filter-category input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkbox-group input {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.checkbox-group label {
+  font-size: 0.95rem;
+  color: #444;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.checkbox-group label:hover {
+  color: #007bff;
+}
+
+.filter-category h5 {
+  font-size: 1.25rem;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .filter-section {
+    padding: 15px;
+    max-width: 100%;
+  }
+  .filter-section h4 {
+    font-size: 1.25rem;
+  }
+  .filter-category h5 {
+    font-size: 1.1rem;
+  }
+  .checkbox-group label {
+    font-size: 0.9rem;
+  }
 }
 
 .apply-button {

@@ -32,6 +32,7 @@ import { JobManagementComponent } from './components/job-management/job-manageme
 import { JobPostingComponent } from './components/job-posting/job-posting.component';
 import { UserRoleAssignmentComponent } from './components/user-role-assignment/user-role-assignment.component';
 import { AddEmployerComponent } from './components/add-employer/add-employer.component';
+import { MyJobPostingsComponent } from './components/my-job-postings/my-job-postings.component';
 
 @NgModule({
   declarations: [
