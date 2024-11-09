@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { User } from './models/user';
 import { NavigationEnd, Router } from '@angular/router';
 import { UserService } from './services/user.service';
@@ -21,9 +21,12 @@ export class AppComponent  implements OnInit{
 
   constructor(private router: Router, private userService:UserService){ 
     //console.log('test!');
-    
+    // Check screen size on load
+    this.checkScreenSize();
   }
 
+  isMobile: boolean = window.innerWidth <= 768;
+  isSidebarOpen: boolean = false;
   currentRole: string="user";
 
   ngOnInit(): void {
@@ -36,6 +39,22 @@ export class AppComponent  implements OnInit{
       this.currentRole = user.role; // Default to 'user'
       console.log('Current user role is ' + this.currentRole);
    }
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    this.checkScreenSize();
+  }
+
+  checkScreenSize() {
+    this.isMobile = window.innerWidth <= 768;
+    if (!this.isMobile) {
+      this.isSidebarOpen = false; // Reset sidebar for desktop
+    }
+  }
+
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
   }
 
   isUserRole(role: string): boolean {
