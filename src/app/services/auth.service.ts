@@ -9,7 +9,8 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
   
-  private baseUrl = 'http://localhost:3000';
+  //private baseUrl = 'http://localhost:3000';
+  private baseUrl = 'http://192.168.1.52:3000';
 
   // private isLoggedInSubject = new BehaviorSubject<boolean>(false);
   // isLoggedIn$ = this.isLoggedInSubject.asObservable();

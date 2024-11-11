@@ -1,67 +1,103 @@
-/* General Layout */
+/* Main container styling */
 .main-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Full viewport height */
-    padding:1rem;
+  display: flex;
+  flex-direction: column;
+  background-image: url('/assets/resource/rh3.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.content-wrapper {
+  display: flex;
+  margin-top: 20px; /* Space below the header */
+}
+
+/* Sidebar styles */
+.navigation {
+  width: 200px;
+  background-color: #7aafe0;
+  color: white;
+  height: 50%; /* Full height */
+  position: fixed;
+  top: 200;
+  left: 0;
+  display: none;
+  z-index: 10;
+}
+
+.navigation.open {
+  display: block;
+}
+
+/* Sidebar links styling */
+.sidebar-links {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-links .btn {
+  margin: 10px 0;
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Content container styling */
+.content-container {
+  margin-left: 250px; /* Space for sidebar */
+  flex-grow: 1;
+  padding: 20px;
+  transition: margin-left 0.3s ease, filter 0.3s ease;
+}
+
+.content-container.blurred {
+  filter: blur(4px);
+}
+
+/* Sidebar toggle button styling */
+.sidebar-toggle {
+  font-size: 1.5rem;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px 0; /* Add space around the button */
+  display: none; /* Hide by default */
+}
+
+/* Show toggle button for mobile screens */
+@media (max-width: 768px) {
+  .sidebar-toggle {
+    display: block; /* Show toggle button on mobile */
+    margin: 10px 20px; /* Adjust spacing to align with content */
+    position: relative; /* Positioned at the top of content-container */
   }
-  
-  /* Wrapper to align sidebar and main content horizontally */
-  .content-wrapper {
-    display: flex;
-    flex: 1; /* Takes available space between header and footer */
-  }
-  
-  /* Sidebar Navigation Styles */
+
   .navigation {
-    width: 250px; /* Fixed width for sidebar */
-    background-color: #f4f4f4; /* Sidebar background color */
-    background-image: url('/assets/resource/rh2.jpg'), url('/assets/resource/rh1.jpg'), 
-    url('/assets/resource/rh3.jpg'), url('/assets/resource/rh4.jpg');
-    background-size: cover; /* Ensure background images cover the sidebar */
-    background-position: center; /* Center the background images */
-    background-repeat: no-repeat; /* Prevent background images from repeating */
-    padding: 1rem;
-    position: sticky;
-    top: 0; /* Stick to the top of the viewport */
-    height: calc(100vh - 100px); /* Adjust height for header/footer (if each is 50px) */
-    overflow-y: auto; /* Scrollable if content overflows */
-  }
-  
-  .sidebar-links {
-    background-size: cover;
-    background-position: center;
-    width: 100%;
+    display: none; /* Hide sidebar on mobile by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    background-color: #333;
     height: 100%;
-    transition: background-image 0.3s ease-in-out;
+    z-index: 20;
   }
-  
-  
-  .sidebar-links .btn {
-    margin: 0.5rem 0;
-    width: 100%; /* Full width for buttons */
+
+  .navigation.open {
+    display: block;
   }
-  
-  /* Main Content Styles */
+
   .content-container {
-    flex: 1; /* Takes the remaining space */
-    padding: 1rem;
-    background-color: #fff; /* Content background color */
-    overflow-y: auto; /* Scrollable content area */
-    max-width: calc(100% - 200px); /* Adjust width for sidebar */
+    margin-left: 0; /* Don’t offset content container when sidebar is hidden */
   }
-  
-  /* Styling for Buttons */
-  .btn {
-    padding: 0.5rem;
-    background-color: #6e86e7; /* Customize as desired */
-    color: white;
-    text-align: left; /* Align button text to the left */
-    border: none;
-    border-radius: 4px;
+
+  .content-container.blurred {
+    filter: blur(4px); /* Apply blur when sidebar is open */
   }
-  
-  .btn:hover {
-    background-color: #365a27; /* Hover effect */
-  }
-  
+}

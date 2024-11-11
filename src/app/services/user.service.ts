@@ -18,7 +18,8 @@ export class UserService {
   userID: any;
   message!: string;
   isDisplayed!: boolean;
-  private userUrl = 'http://localhost:3000/users';
+  //private userUrl = 'http://localhost:3000/users';
+  private userUrl = 'http://192.168.1.52:3000/users';
 
   private userSubject: BehaviorSubject<User|null>;
   public user: Observable<User | null>;

@@ -4,28 +4,31 @@
     justify-content: space-between;
     align-items: center;
     padding: 3% 3%;
-    background-color: rgb(170, 221, 241); /* Light grey background */
+    background-color: rgb(170, 221, 241);
     border-top: 2px solid #e1f184;
     border-bottom: 2px solid #e1f184;
+    flex-wrap: wrap; /* Allow items to wrap for better responsiveness */
 }
 
 .title {
     display: flex;
     align-items: center;
+    flex-wrap: wrap; /* Wrap items within title for better fit */
+    text-align: center;
 }
 
 /* School logo */
 .school-logo {
-    width: 100px;
-    height: auto; /* Maintain aspect ratio */
-    margin-right: 50px; /* Space between logo and school name */
+    width: 80px; /* Adjusted width for more flexibility */
+    height: auto;
+    margin-right: 10px; /* Reduced margin for better fit on small screens */
 }
 
 /* School name */
 .school-name {
-    font-size: 3rem;
+    font-size: 2rem; /* Slightly smaller to fit better on narrow screens */
     font-weight: bold;
-    white-space: nowrap; /* Prevent text wrapping */
+    white-space: nowrap;
 }
 
 /* Button styling */
@@ -40,10 +43,15 @@
         align-items: center;
     }
 
+    .school-logo {
+        width: 60px; /* Further reduce logo size for mobile */
+        margin-right: 5px;
+    }
+
     .school-name {
         font-size: 1.5rem; /* Smaller font size for mobile view */
         text-align: center;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
     }
 
     .auth-buttons {
@@ -53,6 +61,6 @@
 
     .auth-buttons .btn {
         font-size: 0.9rem;
-        width: 100px; /* Adjust width for mobile view */
+        width: 90px; /* Adjust width for mobile view */
     }
 }

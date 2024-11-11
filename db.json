@@ -82,6 +82,12 @@
       "email": "emp@test",
       "password": "emp",
       "role": "employer"
+    },
+    {
+      "id": "4bd3",
+      "username": "Test",
+      "email": "Test@test",
+      "password": "test"
     }
   ],
   "applications": [
@@ -119,6 +125,15 @@
       "phone": "1233453456",
       "school": "rhhs",
       "grade": "10",
+      "jobId": "1"
+    },
+    {
+      "id": "8d5b",
+      "name": "Brandon yu",
+      "email": "Test@test",
+      "phone": "1234567",
+      "school": "Rhhs",
+      "grade": "11",
       "jobId": "1"
     }
   ],

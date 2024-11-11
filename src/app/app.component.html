@@ -1,24 +1,29 @@
 <div class="main-container">
-  <app-header></app-header> <!-- Your header component -->
+  <app-header></app-header>
 
-  <!-- Wrapper to organize sidebar and content side by side -->
+  <!-- Sidebar Toggle Button (for mobile view), moved to the top of the content container -->
+  <button class="sidebar-toggle" *ngIf="isMobile" (click)="toggleSidebar()">
+    &#9776; Menu
+  </button>
+
   <div class="content-wrapper">
-    <!-- Sidebar Navigation -->
-    <div class="navigation">
-      <div class="sidebar-links">
+    <!-- Sidebar Navigation, positioned to the left of the content on large screens -->
+    <div class="navigation" [class.open]="isSidebarOpen || !isMobile">
+      <div class="sidebar-links" [ngStyle]="{ 'background-image': 'url(' + backgroundImage + ')' }">
         <button routerLink="/job-list" routerLinkActive="active" class="btn">Job List</button>
         <button *ngIf="isUserRole('admin')" routerLink="/jobmanagement" routerLinkActive="active" class="btn">Job Management</button>
         <button *ngIf="isUserRole('admin')" routerLink="/userroleassignment" routerLinkActive="active" class="btn">Add User Role</button>
         <button *ngIf="isUserRole('admin')" routerLink="/addemployer" routerLinkActive="active" class="btn">Add Employer</button>
         <button *ngIf="isUserRole('employer')" routerLink="/jobposting" routerLinkActive="active" class="btn">Job Posting</button>
+        <button *ngIf="isUserRole('employer')" routerLink="/my-job-posting" routerLinkActive="active" class="btn">My Job Posting</button>
       </div>
     </div>
 
     <!-- Main Content Area -->
-    <div class="content-container">
-      <router-outlet></router-outlet> <!-- Main content is rendered here -->
+    <div class="content-container" [class.blurred]="isSidebarOpen && isMobile">
+      <router-outlet></router-outlet>
     </div>
   </div>
 
-  <app-footer></app-footer> <!-- Your footer component -->
+  <app-footer></app-footer>
 </div>

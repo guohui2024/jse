@@ -8,9 +8,13 @@ import { Application } from '../models/Application';
   providedIn: 'root'
 })
 export class JobService {
-  private jobUrl = 'http://localhost:3000/jobs';
-  private applicationUrl = 'http://localhost:3000/applications';
-  private employersUrl = 'http://localhost:3000/employers';
+  // private jobUrl = 'http://localhost:3000/jobs';
+  // private applicationUrl = 'http://localhost:3000/applications';
+  // private employersUrl = 'http://localhost:3000/employers';
+
+  private jobUrl = 'http://192.168.1.52:3000/jobs';
+  private applicationUrl = 'http://192.168.1.52:3000/applications';
+  private employersUrl = 'http://192.168.1.52:3000/employers';
 
   constructor(private http: HttpClient) {}
 

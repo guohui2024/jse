@@ -23,7 +23,10 @@ export class AddEmployerComponent implements OnInit {
 
   // Load employers from db.json
   loadEmployers(): void {
-    this.http.get<any[]>('http://localhost:3000/employers').subscribe((data) => {
+    // this.http.get<any[]>('http://localhost:3000/employers').subscribe((data) => {
+    //   this.employers = data;
+    // });
+    this.http.get<any[]>('http://192.168.1.52:3000/employers').subscribe((data) => {
       this.employers = data;
     });
   }
@@ -45,8 +48,9 @@ export class AddEmployerComponent implements OnInit {
   onSubmit(): void {
     if (this.employer.name && this.employer.location && this.employer.logo) {
       // Save the new employer data to db.json
-      this.http.post('http://localhost:3000/employers', this.employer).subscribe(
-        () => {
+      //this.http.post('http://localhost:3000/employers', this.employer).subscribe(
+        this.http.post('http://192.168.1.52:3000/employers', this.employer).subscribe(
+      () => {
           this.loadEmployers(); // Reload the employers list
           this.resetForm(); // Reset the form fields
         },
@@ -67,7 +71,9 @@ export class AddEmployerComponent implements OnInit {
 
   // Delete an employer
   deleteEmployer(id: number): void {
-    this.http.delete(`http://localhost:3000/employers/${id}`).subscribe(
+    //this.http.delete(`http://localhost:3000/employers/${id}`).subscribe(
+    
+    this.http.delete(`http://192.168.1.52:3000/employers/${id}`).subscribe(  
       () => {
         this.loadEmployers(); // Reload the employers list after deletion
       },

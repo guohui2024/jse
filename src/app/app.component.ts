@@ -30,14 +30,14 @@ export class AppComponent  implements OnInit{
 
   ngOnInit(): void {
     
-    // Retrieve the user's role from localStorage or any other auth service
-   const storedUser = localStorage.getItem('user');
-   if (storedUser) {
-      const user = JSON.parse(storedUser);
-      console.log('Current user is ' + user);
-      this.currentRole = user.role; // Default to 'user'
-      console.log('Current user role is ' + this.currentRole);
-   }
+  //   // Retrieve the user's role from localStorage or any other auth service
+  //  const storedUser = localStorage.getItem('user');
+  //  if (storedUser) {
+  //     const user = JSON.parse(storedUser);
+  //     console.log('Current user is ' + user);
+  //     this.currentRole = user.role; // Default to 'user'
+  //     console.log('Current user role is ' + this.currentRole);
+  //  }
   }
 
   @HostListener('window:resize', ['$event'])
