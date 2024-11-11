@@ -5,119 +5,91 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { JobService } from 'src/app/services/job.service';
 import { ConfirmationModalComponent } from '../confirmation-modal/confirmation-modal.component';
 
-
 @Component({
   selector: 'app-job-apply',
   templateUrl: './job-apply.component.html',
   styleUrls: ['./job-apply.component.css'],
 })
 export class JobApplyComponent implements OnInit {
-  applicant = {
-    id: '',
-    jobId:'',
-    userId:'',
-    name: '',
-    email: '',
-    phone: '',
-    school: '',
-    grade: '',
-    resume: null as File | null  // Define resume property to store the file
-  };
-  
   applicationForm: FormGroup;
-  user: any; //store applicant details
   job: any; // Store the job details
-  jobId:any;
+  jobId: any;
+  showConfirmationModal: boolean = false;
 
-  constructor(private jobService: JobService, private router: Router, private fb: FormBuilder,
-    private modalService: NgbModal, private route: ActivatedRoute) {
-         this.applicationForm = this.fb.group({
-                              name: ['', Validators.required],
-                              email: ['', [Validators.required, Validators.email]],
-                              phone: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
-                              school: ['', Validators.required],
-                              grade: ['', Validators.required]
-                          });                          
-  }
+  constructor(private jobService: JobService, private router: Router, private fb: FormBuilder, private route: ActivatedRoute) {
+    this.applicationForm = this.fb.group({
+      name: ['', Validators.required],
+      grade: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      phone: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
+      school: ['', Validators.required],
+      resume: [null] // To handle resume file input
+    });
+}
 
   ngOnInit(): void {
-    // Retrieve id from route parameters
-    this.jobId = this.jobService.getid();
-    if(this.jobId==null) this.jobId=localStorage.getItem("id");
-    // Proceed with the job application process
-    this.initializeJobApplicationForm();
-    //this.id = this.route.snapshot.paramMap.get('id');
-    console.log("in job apply page, id is " + this.jobId);
+    this.jobId = this.route.snapshot.paramMap.get('id');
+    if (!this.jobId) {
+      this.jobId = localStorage.getItem('id');
+    }
 
-    // Check if the user is logged in by looking for a user object in session storage
-     // Retrieve user data from localStorage
-     const storedUser = localStorage.getItem('user');
-     if (storedUser) {
-       const user = JSON.parse(storedUser);
-       console.log("Retrieved user data:", user);
-
-       // Populate form fields with user data if available
-       this.applicationForm.patchValue({
-         name: user.name || '',
-         email: user.email || '',
-         phone: user.phone || '',
-         school: user.school || ''
-       });
-     }
-    
-    if (!storedUser) {
-      // If no user, redirect to login page
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      const user = JSON.parse(storedUser);
+      console.log("get applicant: " + user);
+      this.applicationForm.patchValue({
+        email: user.email || ''
+      });
+    } else {
       this.router.navigate(['/login']);
-    } 
-  }
+    }
 
-  // Initialize the job application form
-  initializeJobApplicationForm() {
-    // Additional logic for initializing the form
-    this.job = this.getJobDetails(this.jobId);
-    this.user = localStorage.getItem('user'); 
-  }  
+    this.getJobDetails(this.jobId);
+  }
 
   getJobDetails(id: string): void {
     this.jobService.getJobById(id).subscribe((data) => {
-      this.job = data; // Populate the job details
-      console.log("get job detail: ", this.job); // Log the original object
+      this.job = data;
+      console.log("Retrieved job details: ", this.job);
 
-      // Convert the job object to a JSON string
-      const jobJson = JSON.stringify(this.job);
-      console.log("Job as JSON: ", jobJson); // Log the JSON representation
+      // Populate the form with job details
+      this.applicationForm.patchValue({
+        jobTitle: this.job.title,
+        employer: this.job.employer,
+        location: this.job.location,
+        salary: this.job.salary,
+        jobType: this.job.type,
+      });
     });
   }
 
   onFileChange(event: any) {
     const file = event.target.files[0];
     if (file) {
-      this.applicant.resume = file; // Store the file object
+      // Store or process the file as needed
     }
   }
-
-  showConfirmationModal: boolean = false;
 
   openConfirmation() {
     this.showConfirmationModal = true;
   }
 
   confirmApplication() {
-    var applicantData = this.applicationForm.value;
-    applicantData.jobId=this.job.id;
-    applicantData.userId=this.user.id;
-    const jobTitle = this.job.title; // Get the job title
-    
+    const applicantData = this.applicationForm.value;
+    applicantData.jobId = this.job.id;
+
     this.showConfirmationModal = false;
 
-    // Call the service to save the application data
-    this.jobService.saveApplication(applicantData)
-      .subscribe(response => {
+    this.jobService.saveApplication(applicantData).subscribe(
+      (response) => {
         console.log("Application saved:", response);
         alert("Your application has been submitted successfully!");
-      }, error => {
+        this.router.navigate(['/job-list']);
+      },
+      (error) => {
         console.error("Error saving application:", error);
-      });
+      }
+    );
   }
 
   cancelApplication() {

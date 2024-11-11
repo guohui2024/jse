@@ -9,7 +9,7 @@ import { UserService } from './services/user.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent  implements OnInit{
-  backgroundImage: string = 'assets/images/rh1.jpg'; // or use any valid image URL
+  backgroundImage: string = 'assets/resource/rh1.jpg'; // or use any valid image URL
  
   @Input()
   public title: string = "JOB SEARCHING ENGINE";

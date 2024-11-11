@@ -16,6 +16,7 @@ export class JobService {
   private applicationUrl = 'http://192.168.1.52:3000/applications';
   private employersUrl = 'http://192.168.1.52:3000/employers';
 
+  job: any; // Store the job details
   constructor(private http: HttpClient) {}
 
   private id: number | null = null;

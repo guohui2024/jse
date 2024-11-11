@@ -13,7 +13,6 @@ import { EmployerGuard } from './guards/employer.guard';
 import { JobPostingComponent } from './components/job-posting/job-posting.component';
 import { UserRoleAssignmentComponent } from './components/user-role-assignment/user-role-assignment.component';
 import { AddEmployerComponent } from './components/add-employer/add-employer.component';
-import { MyJobPostingsComponent } from './components/my-job-postings/my-job-postings.component';
 
 const routes: Routes = [
   { path: 'login',    component: LoginComponent  },
