@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Job } from 'src/app/models/job';
 import { JobService } from 'src/app/services/job.service';
@@ -41,6 +41,16 @@ export class JobListComponent implements OnInit {
     this.checkUserRole(); // Check the user role on initialization
   }
 
+  // This will control whether we are on a desktop view or mobile view
+  isDesktop: boolean = window.innerWidth >= 768;
+
+  // Listen for window resizing
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.isDesktop = event.target.innerWidth >= 768;
+  }
+
+  
   checkUserRole() {
     // Assuming you have a method to get the user's role
     const userRole = this.userService.getCurrentUserRole(); // Adjust this based on your implementation

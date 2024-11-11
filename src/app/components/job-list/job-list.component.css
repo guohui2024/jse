@@ -1,161 +1,150 @@
-.main-content-section {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  padding:2rem;
-  box-sizing: border-box;
-  margin: 0 auto;
+/* General styles for job cards */
+.job-card {
+  padding: 1rem;  /* Adjust padding to make it smaller on mobile */
+  margin-bottom: 1rem;  /* Space between job cards */
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  background-image:  url('/assets/resource/rh1.jpg'), 
-                     url('/assets/resource/rh3.jpg'), url('/assets/resource/rh4.jpg');
-  background-size: cover; /* Ensure background images cover the sidebar */
-  background-position: center; /* Center the background images */
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.job-list-section, .filter-section {
-  width: 100%; /* Make each section take full width */
-  margin-bottom: 20px; /* Add spacing between sections */
-}
-
+/* Styles for the filter section */
 .filter-section {
-  width: 100%;
-  max-width: 400px;
+  display: block;
+  width: 100%; /* Full width of the container */
+  max-width: 300px; /* Restrict maximum width for better visual balance */
   padding: 20px;
   background-color: #f8f9fa;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+  margin-right: 20px; /* Margin to give some space between job list */
 }
 
-.filter-section h4 {
-  font-size: 1.5rem;
-  color: #333;
-  margin-bottom: 15px;
-  font-weight: bold;
-}
-
-.filter-group,
+/* Styles for filter category groups */
 .filter-category {
-  display: flex;
-  flex-direction: column;
-  gap: 15px; /* Increased gap between filters for better spacing */
+  margin-bottom: 20px; /* Space between different filter categories */
 }
 
-.filter-group label,
-.filter-category label {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 5px;
+/* Title for filter categories */
+.filter-category h5 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 10px; /* Space between the category title and options */
+  color: #495057; /* Slightly darker color for readability */
 }
 
-.filter-group input,
-.filter-category input {
-  padding: 8px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  transition: border-color 0.3s ease;
-}
-
-.filter-group input:focus,
-.filter-category input:focus {
-  border-color: #007bff;
-  outline: none;
-}
-
+/* Checkbox group for each filter option */
 .checkbox-group {
   display: flex;
   align-items: center;
-  gap: 10px;
+  margin-bottom: 8px; /* Space between each checkbox */
 }
 
-.checkbox-group input {
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
+.checkbox-group input[type="checkbox"] {
+  margin-right: 10px; /* Space between checkbox and label */
+  cursor: pointer; /* Change cursor to pointer for better UX */
 }
 
+/* Label styles for checkboxes */
 .checkbox-group label {
-  font-size: 0.95rem;
-  color: #444;
-  cursor: pointer;
-  transition: color 0.3s ease;
+  font-size: 1rem;
+  color: #495057; /* Matching color for better consistency */
+  cursor: pointer; /* Indicating clickable items */
 }
 
-.checkbox-group label:hover {
-  color: #007bff;
+/* Title Filter Input */
+.filter-group input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  margin-top: 5px; /* Space between label and input field */
+  box-sizing: border-box;
 }
 
-.filter-category h5 {
-  font-size: 1.25rem;
-  color: #333;
-  margin-bottom: 10px;
-  font-weight: bold;
-}
-
-@media (max-width: 600px) {
+/* Styling for the filter section when expanded on desktop */
+@media (min-width: 768px) {
   .filter-section {
-    padding: 15px;
-    max-width: 100%;
-  }
-  .filter-section h4 {
-    font-size: 1.25rem;
-  }
-  .filter-category h5 {
-    font-size: 1.1rem;
-  }
-  .checkbox-group label {
-    font-size: 0.9rem;
-  }
-}
-
-.apply-button {
-  width: 200px; /* Adjusted width */
-  height: 50px; /* Better height for easier clicks */
-  font-size: 1.1rem; /* Slightly larger font size */
-  margin-top: 1rem; /* Spacing above the button */
-}
-
-.job-card {
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 1.5rem;
-  margin-bottom: 1rem; /* More space between job cards */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.job-title {
-  font-weight: bold;
-  font-size: 1.5rem; /* Larger font for job title */
-  color: #007bff; /* Blue color for better visibility */
-  margin-bottom: 0.5rem;
-}
-
-.job-description {
-  font-size: 1rem; /* Slightly larger font size */
-  margin-bottom: 1rem; /* Consistent margin */
-}
-
-.job-info-meta {
-  display: flex;
-  justify-content: space-between; /* Spread items out across the card */
-  margin-bottom: 1rem;
-}
-
-@media (max-width: 768px) {
-  .main-content-section {
-    flex-direction: column; /* Stack vertically on smaller screens */
-  }
-
-  @media (max-width: 768px) {
-    .job-list-section {
-      width: 100%;
-      padding: 15px; /* Slightly reduced padding on mobile */
-    }
+    display: block; /* Ensure it's always visible on desktop */
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
   }
   
+  /* Job list section on laptop */
+  .job-list-section {
+    width: 70%; /* Keep the job list section taking most of the screen */
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+  }
+
+  /* Filter modal background and style for better contrast */
+  .filter-modal {
+    background-color: rgba(0, 0, 0, 0.5); /* Dark background for the filter modal */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+  }
+
+  .filter-modal.show {
+    display: flex; /* Show modal when the filter is active */
+  }
+
+  .filter-modal .filter-section {
+    max-width: 400px; /* Limit the width of the modal */
+    width: 80%; /* Give it a responsive width */
+    background-color: white;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+}
+
+
+/* Reduce padding and margins on mobile */
+@media (max-width: 768px) {
+  .job-card {
+    padding: 0.5rem; /* Smaller padding for mobile */
+    margin-bottom: 0.2rem; /* Less margin for compact layout */
+    border-radius: 4px; /* Slightly smaller border radius */
+  }
+
+  /* Job List Section full width on mobile */
+  .job-list-section {
+    width: 100%;  /* Full width of the screen */
+    padding: 0.1rem; /* Remove extra padding on the sides */
+  }
+
+  /* Adjust job list container padding */
+  .job-list-section .card {
+    padding: 0.1rem; /* Reduced padding inside cards */
+  }
+
+  /* Title and job details adjustments */
+  .job-title {
+    font-size: 1rem; /* Smaller font size for title on mobile */
+  }
+
+  .job-description {
+    font-size: 0.875rem; /* Smaller font size for description */
+  }
+
+  .job-info-meta {
+    font-size: 0.75rem; /* Smaller text size for job info */
+  }
+
+  .job-meta {
+    font-size: 0.75rem; /* Reduce font size for meta info */
+  }
+
+  .apply-button {
+    font-size: 0.675rem; /* Smaller button text on mobile */
+    padding: 0.5rem 1rem; /* Smaller button padding */
+  }
 }
